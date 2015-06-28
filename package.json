@@ -1,0 +1,30 @@
+{
+  "name": "micropub-hosted",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "",
+  "author": "Pelle Wessman <pelle@kodfabrik.se> (http://kodfabrik.se/)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/voxpelli/node-one-page.git"
+  },
+  "main": "./lib/main",
+  "directories": {
+    "lib": "./lib"
+  },
+  "scripts": {
+    "start": "node .",
+    "test": "node -e \"require('grunt').tasks(['test']);\"",
+    "test-all": "node -e \"require('grunt').tasks(['test-all']);\"",
+    "prepush": "npm test"
+  },
+  "devDependencies": {
+    "dotenv": "^1.2.0",
+    "lintlovin": "^1.15.1"
+  },
+  "dependencies": {
+    "lodash": "^3.9.3",
+    "node-fetch": "^1.3.0",
+    "verror": "^1.6.0"
+  }
+}
