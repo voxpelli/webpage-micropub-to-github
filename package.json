@@ -29,6 +29,9 @@
     "mocha": "^2.2.5"
   },
   "dependencies": {
+    "body-parser": "^1.13.1",
+    "bunyan-duckling": "^1.0.0",
+    "express": "^4.13.0",
     "js-yaml": "^3.3.1",
     "lodash": "^3.9.3",
     "nock": "^2.6.0",
