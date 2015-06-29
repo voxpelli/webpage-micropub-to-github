@@ -19,8 +19,14 @@
     "prepush": "npm test"
   },
   "devDependencies": {
+    "chai": "^3.0.0",
+    "chai-as-promised": "^5.1.0",
     "dotenv": "^1.2.0",
-    "lintlovin": "^1.15.1"
+    "grunt": "^0.4.5",
+    "husky": "^0.7.0",
+    "istanbul": "^0.3.17",
+    "lintlovin": "^1.15.1",
+    "mocha": "^2.2.5"
   },
   "dependencies": {
     "lodash": "^3.9.3",
