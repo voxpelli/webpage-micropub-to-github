@@ -26,13 +26,13 @@ describe('Formatter', function () {
         'type': ['h-entry'],
         'properties': {
           'content': ['hello world'],
-          'name': ['awesomeness'],
+          'name': ['awesomeness is awesome'],
         },
       }).should.equal(
         '---\n' +
         'layout: post\n' +
-        'title: "awesomeness"\n' +
-        'date: 2015-04-05T16:20:00+02:00\n' +
+        'date: \'2015-04-05T16:20:00+02:00\'\n' +
+        'title: awesomeness is awesome\n' +
         '---\n' +
         'hello world\n'
       );
