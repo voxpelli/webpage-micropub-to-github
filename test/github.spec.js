@@ -37,9 +37,9 @@ describe('Formatter', function () {
       var publisher = new GitHubPublisher(token, user, repo);
 
       var mock = nock('https://api.github.com/')
-        .matchHeader('user-agent', function (val) {
-          return val && val[0] === user;
-        })
+        .matchHeader('user-agent',    function (val) { return val && val[0] === user; })
+        .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
+        .matchHeader('accept',        function (val) { return val && val[0] === 'application/vnd.github.v3+json'; })
         .put(path, {
           message: 'new content',
           content: base64,
