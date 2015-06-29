@@ -26,7 +26,8 @@
     "husky": "^0.7.0",
     "istanbul": "^0.3.17",
     "lintlovin": "^1.15.1",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "supertest": "^1.0.1"
   },
   "dependencies": {
     "body-parser": "^1.13.1",
