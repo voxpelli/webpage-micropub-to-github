@@ -42,21 +42,48 @@ describe('Micropub API', function () {
 
     it('should require authorization', function (done) {
       agent
-        .put('/micropub/thepost.se')
+        .post('/micropub/thepost.se')
         .expect(401, 'Missing "Authorization" header or body parameter.', done);
     });
 
 
     it('should require h-field', function (done) {
       agent
-        .put('/micropub/thepost.se')
+        .post('/micropub/thepost.se')
         .set('Authorization', 'Bearer abc123')
         .expect(400, 'Missing "h" value.', done);
     });
+  });
 
-    // it('should require h-field', function (done) {
-    //   agent.put('/micropub/thepost.se').type('form').send({ h: 'entry' }).expect(401, done);
-    // });
+  describe('auth', function () {
+
+    it('should call handler and return 201 on successful request', function (done) {
+      var token = 'abc123';
+
+      var mock = nock('https://tokens.indieauth.com/')
+        .matchHeader('Authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
+        .get('/token')
+        .matchHeader('Content-Type', function (val) { return val && val[0] === 'application/x-www-form-urlencoded'; })
+        .reply(
+          200,
+          'me=http%3A%2F%2Fkodfabrik.se%2F&issued_by=https%3A%2F%2Ftokens.indieauth.com%2Ftoken&client_id=http%3A%2F%2F127.0.0.1%3A8080%2F&issued_at=1435611612&scope=post&nonce=501574078',
+          { 'Content-Type': 'application/x-www-form-urlencoded' }
+        );
+
+      agent
+        .post('/micropub/thepost.se')
+        .set('Authorization', 'Bearer ' + token)
+        .type('form')
+        .send({
+          h: 'entry',
+          content: 'hello world',
+        })
+        .expect(201, function (err) {
+          if (err) { return done(err); }
+          mock.done();
+          done();
+        });
+    });
 
   });
 });

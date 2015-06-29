@@ -1,9 +1,11 @@
 {
-  "name": "micropub-hosted",
+  "name": "micropub-to-github",
   "version": "1.0.0",
   "license": "MIT",
+  "private": true,
   "description": "",
   "author": "Pelle Wessman <pelle@kodfabrik.se> (http://kodfabrik.se/)",
+  "homepage": "https://github.com/voxpelli/webpage-micropub-github",
   "repository": {
     "type": "git",
     "url": "git://github.com/voxpelli/node-one-page.git"
