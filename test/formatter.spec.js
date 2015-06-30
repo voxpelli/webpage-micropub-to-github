@@ -65,6 +65,20 @@ describe('Formatter', function () {
       );
     });
 
+    it('should handle categories', function () {
+      baseMicropubData.properties.category = ['foo', 'bar'];
+
+      return formatter.format(baseMicropubData).should.eventually.equal(
+        '---\n' +
+        'layout: post\n' +
+        'date: \'2015-06-30T14:34:01.000Z\'\n' +
+        'title: awesomeness is awesome\n' +
+        'categories: foo bar\n' +
+        '---\n' +
+        'hello world\n'
+      );
+    });
+
   });
 
   describe('formatFilename', function () {
