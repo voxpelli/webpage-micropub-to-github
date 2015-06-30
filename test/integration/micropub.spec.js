@@ -29,7 +29,7 @@ describe('Micropub API', function () {
 
   var doRequest = function (mock, done, code, content) {
     agent
-      .post('/micropub/thepost.se')
+      .post('/micropub')
       .set('Authorization', 'Bearer ' + token)
       .type('form')
       .send(content || {
@@ -51,7 +51,12 @@ describe('Micropub API', function () {
     nock.enableNetConnect('127.0.0.1');
 
     app = express();
-    app.use('/micropub', micropub());
+    app.use('/micropub', micropub({
+      token: {
+        me: 'http://kodfabrik.se/',
+        endpoint: 'https://tokens.indieauth.com/token',
+      },
+    }));
 
     agent = request.agent(app);
 
@@ -65,19 +70,19 @@ describe('Micropub API', function () {
   describe('basics', function () {
 
     // it('should not accept a GET-request', function (done) {
-    //   agent.get('/micropub/thepost.se').expect(405, done);
+    //   agent.get('/micropub').expect(405, done);
     // });
 
     it('should require authorization', function (done) {
       agent
-        .post('/micropub/thepost.se')
+        .post('/micropub')
         .expect(401, 'Missing "Authorization" header or body parameter.', done);
     });
 
 
     it('should require h-field', function (done) {
       agent
-        .post('/micropub/thepost.se')
+        .post('/micropub')
         .set('Authorization', 'Bearer abc123')
         .expect(400, 'Missing "h" value.', done);
     });
