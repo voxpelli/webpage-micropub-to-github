@@ -70,18 +70,18 @@ describe('Formatter', function () {
   describe('formatFilename', function () {
 
     it('should base file name on title', function () {
-      return formatter.formatFilename(baseMicropubData).should.eventually.equal('2015-06-30-awesomeness-is-awesome.html');
+      return formatter.formatFilename(baseMicropubData).should.eventually.equal('_posts/2015-06-30-awesomeness-is-awesome.html');
     });
 
     it('should fall back on content', function () {
       delete baseMicropubData.properties.name;
-      return formatter.formatFilename(baseMicropubData).should.eventually.equal('2015-06-30-hello-world.html');
+      return formatter.formatFilename(baseMicropubData).should.eventually.equal('_posts/2015-06-30-hello-world.html');
     });
 
     it('should ulimately fallback to just date', function () {
       delete baseMicropubData.properties.name;
       delete baseMicropubData.properties.content;
-      return formatter.formatFilename(baseMicropubData).should.eventually.equal('2015-06-30.html');
+      return formatter.formatFilename(baseMicropubData).should.eventually.equal('_posts/2015-06-30.html');
     });
 
   });

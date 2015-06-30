@@ -27,7 +27,7 @@ describe('Handler', function () {
       var token = 'abc123';
       var user = 'username';
       var repo = 'repo';
-      var path = '/repos/' + user + '/' + repo + '/contents/2015-05-10-awesomeness-is-awesome.html';
+      var path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-05-10-awesomeness-is-awesome.html';
 
       var encodedContent = new Buffer(
         '---\n' +
