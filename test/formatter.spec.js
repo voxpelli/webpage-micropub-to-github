@@ -85,4 +85,15 @@ describe('Formatter', function () {
 
   });
 
+  describe('formatURL', function () {
+
+    it('should base URL on name', function () {
+      return formatter.formatURL(baseMicropubData).should.eventually.equal('2015/04/awesomeness-is-awesome/');
+    });
+
+    it('should return absolute URL when requested', function () {
+      return formatter.formatURL(baseMicropubData, 'http://example.com/foo/').should.eventually.equal('http://example.com/foo/2015/04/awesomeness-is-awesome/');
+    });
+
+  });
 });

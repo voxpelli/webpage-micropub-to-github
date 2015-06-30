@@ -46,20 +46,23 @@ describe('Handler', function () {
         })
         .reply(201, {});
 
-      return handler({
-        token: token,
-        user: user,
-        repo: repo,
-      }, {
-        'type': ['h-entry'],
-        'properties': {
-          'content': ['hello world'],
-          'name': ['awesomeness is awesome'],
-        },
-      })
-        .then(function (filename) {
+      return handler(
+          {
+            token: token,
+            user: user,
+            repo: repo,
+          }, {
+            'type': ['h-entry'],
+            'properties': {
+              'content': ['hello world'],
+              'name': ['awesomeness is awesome'],
+            },
+          },
+          'http://example.com/foo/'
+        )
+        .then(function (url) {
           mock.done();
-          filename.should.equal('2015-04-05-awesomeness-is-awesome.html');
+          url.should.equal('http://example.com/foo/2015/04/awesomeness-is-awesome/');
         });
     });
 
