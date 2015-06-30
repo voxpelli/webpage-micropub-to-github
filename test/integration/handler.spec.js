@@ -23,16 +23,16 @@ describe('Handler', function () {
 
   describe('main', function () {
 
-    it('should format and sent content', function () {
+    it('should format and send content', function () {
       var token = 'abc123';
       var user = 'username';
       var repo = 'repo';
-      var path = '/repos/' + user + '/' + repo + '/contents/2015-04-05-awesomeness-is-awesome.html';
+      var path = '/repos/' + user + '/' + repo + '/contents/2015-05-10-awesomeness-is-awesome.html';
 
       var encodedContent = new Buffer(
         '---\n' +
         'layout: post\n' +
-        'date: \'2015-04-05T16:20:00+02:00\'\n' +
+        'date: \'2015-05-10T14:34:01.000Z\'\n' +
         'title: awesomeness is awesome\n' +
         '---\n' +
         'hello world\n'
@@ -55,6 +55,7 @@ describe('Handler', function () {
             'type': ['h-entry'],
             'properties': {
               'content': ['hello world'],
+              'published': ['2015-05-10T14:34:01.000Z'],
               'name': ['awesomeness is awesome'],
             },
           },
@@ -62,7 +63,7 @@ describe('Handler', function () {
         )
         .then(function (url) {
           mock.done();
-          url.should.equal('http://example.com/foo/2015/04/awesomeness-is-awesome/');
+          url.should.equal('http://example.com/foo/2015/05/awesomeness-is-awesome/');
         });
     });
 

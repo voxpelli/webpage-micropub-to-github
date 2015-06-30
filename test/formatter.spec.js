@@ -23,6 +23,7 @@ describe('Formatter', function () {
       'properties': {
         'content': ['hello world'],
         'name': ['awesomeness is awesome'],
+        'published': [new Date(1435674841000)],
       },
     };
   });
@@ -33,7 +34,7 @@ describe('Formatter', function () {
       return formatter.format(baseMicropubData).should.eventually.equal(
         '---\n' +
         'layout: post\n' +
-        'date: \'2015-04-05T16:20:00+02:00\'\n' +
+        'date: \'2015-06-30T14:34:01.000Z\'\n' +
         'title: awesomeness is awesome\n' +
         '---\n' +
         'hello world\n'
@@ -46,7 +47,7 @@ describe('Formatter', function () {
       return formatter.format(baseMicropubData).should.eventually.equal(
         '---\n' +
         'layout: post\n' +
-        'date: \'2015-04-05T16:20:00+02:00\'\n' +
+        'date: \'2015-06-30T14:34:01.000Z\'\n' +
         '---\n' +
         'hello world\n'
       );
@@ -58,7 +59,7 @@ describe('Formatter', function () {
       return formatter.format(baseMicropubData).should.eventually.equal(
         '---\n' +
         'layout: post\n' +
-        'date: \'2015-04-05T16:20:00+02:00\'\n' +
+        'date: \'2015-06-30T14:34:01.000Z\'\n' +
         'title: awesomeness is awesome\n' +
         '---\n'
       );
@@ -69,18 +70,18 @@ describe('Formatter', function () {
   describe('formatFilename', function () {
 
     it('should base file name on title', function () {
-      return formatter.formatFilename(baseMicropubData).should.eventually.equal('2015-04-05-awesomeness-is-awesome.html');
+      return formatter.formatFilename(baseMicropubData).should.eventually.equal('2015-06-30-awesomeness-is-awesome.html');
     });
 
     it('should fall back on content', function () {
       delete baseMicropubData.properties.name;
-      return formatter.formatFilename(baseMicropubData).should.eventually.equal('2015-04-05-hello-world.html');
+      return formatter.formatFilename(baseMicropubData).should.eventually.equal('2015-06-30-hello-world.html');
     });
 
     it('should ulimately fallback to just date', function () {
       delete baseMicropubData.properties.name;
       delete baseMicropubData.properties.content;
-      return formatter.formatFilename(baseMicropubData).should.eventually.equal('2015-04-05.html');
+      return formatter.formatFilename(baseMicropubData).should.eventually.equal('2015-06-30.html');
     });
 
   });
@@ -88,11 +89,11 @@ describe('Formatter', function () {
   describe('formatURL', function () {
 
     it('should base URL on name', function () {
-      return formatter.formatURL(baseMicropubData).should.eventually.equal('2015/04/awesomeness-is-awesome/');
+      return formatter.formatURL(baseMicropubData).should.eventually.equal('2015/06/awesomeness-is-awesome/');
     });
 
     it('should return absolute URL when requested', function () {
-      return formatter.formatURL(baseMicropubData, 'http://example.com/foo/').should.eventually.equal('http://example.com/foo/2015/04/awesomeness-is-awesome/');
+      return formatter.formatURL(baseMicropubData, 'http://example.com/foo/').should.eventually.equal('http://example.com/foo/2015/06/awesomeness-is-awesome/');
     });
 
   });
