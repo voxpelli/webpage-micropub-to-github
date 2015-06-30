@@ -5,7 +5,7 @@
   "private": true,
   "description": "",
   "author": "Pelle Wessman <pelle@kodfabrik.se> (http://kodfabrik.se/)",
-  "homepage": "https://github.com/voxpelli/webpage-micropub-github",
+  "homepage": "https://github.com/voxpelli/webpage-micropub-to-github",
   "repository": {
     "type": "git",
     "url": "git://github.com/voxpelli/node-one-page.git"
@@ -29,6 +29,8 @@
     "istanbul": "^0.3.17",
     "lintlovin": "^1.15.1",
     "mocha": "^2.2.5",
+    "sinon": "^1.15.4",
+    "sinon-as-promised": "^4.0.0",
     "supertest": "^1.0.1"
   },
   "dependencies": {

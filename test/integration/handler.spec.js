@@ -56,9 +56,11 @@ describe('Handler', function () {
           'content': ['hello world'],
           'name': ['awesomeness is awesome'],
         },
-      }).then(function () {
-        mock.done();
-      });
+      })
+        .then(function (filename) {
+          mock.done();
+          filename.should.equal('2015-04-05-awesomeness-is-awesome.html');
+        });
     });
 
   });

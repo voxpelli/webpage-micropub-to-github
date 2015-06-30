@@ -46,7 +46,30 @@ describe('Formatter', function () {
         })
         .reply(201, {});
 
-      return publisher.publish(file, content).then(function () { mock.done(); });
+      return publisher.publish(file, content).then(function (result) {
+        mock.done();
+        result.should.equal(true);
+      });
+    });
+
+    it('should handle errors from GitHub', function () {
+      var token = 'abc123';
+      var user = 'username';
+      var repo = 'repo';
+      var file = 'test.txt';
+      var content = 'Morbi leo risus, porta ac consectetur ac, vestibulum at.';
+      var path = '/repos/' + user + '/' + repo + '/contents/' + file;
+
+      var publisher = new GitHubPublisher(token, user, repo);
+
+      var mock = nock('https://api.github.com/')
+        .put(path)
+        .reply(422, {});
+
+      return publisher.publish(file, content).then(function (result) {
+        mock.done();
+        result.should.equal(false);
+      });
     });
 
   });

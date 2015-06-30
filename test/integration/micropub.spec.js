@@ -7,6 +7,8 @@ var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 var nock = require('nock');
 var request = require('supertest');
+var sinon = require('sinon');
+require('sinon-as-promised');
 
 chai.use(chaiAsPromised);
 chai.should();
@@ -15,7 +17,7 @@ describe('Micropub API', function () {
   var express = require('express');
   var micropub = require('../../lib/micropub.js');
 
-  var app, agent, token;
+  var app, agent, token, handlerStub;
 
   var mockTokenEndpoint = function (code, response) {
     return nock('https://tokens.indieauth.com/')
@@ -27,20 +29,27 @@ describe('Micropub API', function () {
       );
   };
 
-  var doRequest = function (mock, done, code, content) {
-    agent
+  var doRequest = function (mock, done, code, content, response) {
+    var req = agent
       .post('/micropub')
       .set('Authorization', 'Bearer ' + token)
       .type('form')
       .send(content || {
         h: 'entry',
         content: 'hello world',
-      })
-      .expect(code || 201, function (err) {
-        if (err) { return done(err); }
-        mock.done();
-        done();
       });
+
+    if (response) {
+      req = req.expect(code || 201, response);
+    } else {
+      req = req.expect(code || 201);
+    }
+
+    req.end(function (err) {
+      if (err) { return done(err); }
+      if (mock) { mock.done(); }
+      done();
+    });
   };
 
   beforeEach(function () {
@@ -50,8 +59,14 @@ describe('Micropub API', function () {
     // Without it things blows up in a not so easy to debug way
     nock.enableNetConnect('127.0.0.1');
 
+    token = 'abc123';
+    handlerStub = sinon.stub().resolves({
+      url: 'http://example.com/', //TODO: Set actual resolve URL
+    });
+
     app = express();
     app.use('/micropub', micropub({
+      handler: handlerStub,
       token: {
         me: 'http://kodfabrik.se/',
         endpoint: 'https://tokens.indieauth.com/token',
@@ -59,8 +74,6 @@ describe('Micropub API', function () {
     }));
 
     agent = request.agent(app);
-
-    token = 'abc123';
   });
 
   afterEach(function () {
@@ -79,13 +92,21 @@ describe('Micropub API', function () {
         .expect(401, 'Missing "Authorization" header or body parameter.', done);
     });
 
-
     it('should require h-field', function (done) {
       agent
         .post('/micropub')
         .set('Authorization', 'Bearer abc123')
         .expect(400, 'Missing "h" value.', done);
     });
+
+    it('should refuse update requests', function (done) {
+      doRequest(false, done, 501, { 'edit-of': 'http://example.com/foo' }, 'This endpoint does not yet support updates.');
+    });
+
+    it('should refuse delete requests', function (done) {
+      doRequest(false, done, 501, { 'delete-of': 'http://example.com/foo' }, 'This endpoint does not yet support deletions.');
+    });
+
   });
 
   describe('auth', function () {
