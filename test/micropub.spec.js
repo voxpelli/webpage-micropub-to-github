@@ -29,4 +29,18 @@ describe('Micropub Parse Formencoded Body', function () {
     });
   });
 
+  it('should handle array properties', function () {
+    micropub.processFormencodedBody({
+      h: 'entry',
+      content: 'hello world',
+      'category[]': ['foo', 'bar'],
+    }).should.deep.equal({
+      type: ['h-entry'],
+      properties: {
+        content: ['hello world'],
+        category: ['foo', 'bar'],
+      }
+    });
+  });
+
 });
