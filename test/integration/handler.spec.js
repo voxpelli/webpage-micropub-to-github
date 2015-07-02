@@ -6,19 +6,23 @@
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 var nock = require('nock');
+var sinon = require('sinon');
 
 chai.use(chaiAsPromised);
 chai.should();
 
 describe('Handler', function () {
   var handler = require('../../lib/handler.js');
+  var clock;
 
   beforeEach(function () {
     nock.disableNetConnect();
+    clock = sinon.useFakeTimers(1435674000000);
   });
 
   afterEach(function () {
     nock.cleanAll();
+    clock.restore();
   });
 
   describe('main', function () {
@@ -27,13 +31,14 @@ describe('Handler', function () {
       var token = 'abc123';
       var user = 'username';
       var repo = 'repo';
-      var path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-05-10-awesomeness-is-awesome.html';
+      var path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.html';
 
       var encodedContent = new Buffer(
         '---\n' +
-        'layout: post\n' +
-        'date: \'2015-05-10T14:34:01.000Z\'\n' +
+        'layout: micropubpost\n' +
+        'date: \'2015-06-30T14:20:00.000Z\'\n' +
         'title: awesomeness is awesome\n' +
+        'slug: awesomeness-is-awesome\n' +
         '---\n' +
         'hello world\n'
       );
@@ -55,7 +60,6 @@ describe('Handler', function () {
             'type': ['h-entry'],
             'properties': {
               'content': ['hello world'],
-              'published': ['2015-05-10T14:34:01.000Z'],
               'name': ['awesomeness is awesome'],
             },
           },
@@ -63,7 +67,7 @@ describe('Handler', function () {
         )
         .then(function (url) {
           mock.done();
-          url.should.equal('http://example.com/foo/2015/05/awesomeness-is-awesome/');
+          url.should.equal('http://example.com/foo/2015/06/awesomeness-is-awesome/');
         });
     });
 
