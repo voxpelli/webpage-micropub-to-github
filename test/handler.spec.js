@@ -12,7 +12,7 @@ chai.use(chaiAsPromised);
 chai.should();
 
 describe('Handler', function () {
-  var handler = require('../../lib/handler.js');
+  var handler = require('../lib/handler.js');
   var clock;
 
   beforeEach(function () {
