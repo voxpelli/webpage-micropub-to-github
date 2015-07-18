@@ -49,7 +49,7 @@ describe('Handler', function () {
           message: 'new content',
           content: encodedContent.toString('base64'),
         })
-        .reply(201, {});
+        .reply(201, { content : { sha : 'abc123' } });
 
       return handler(
           {
