@@ -46,7 +46,7 @@ describe('Handler', function () {
       var mock = nock('https://api.github.com/')
         .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
         .put(path, {
-          message: 'new content',
+          message: 'new article',
           content: encodedContent.toString('base64'),
         })
         .reply(201, { content : { sha : 'abc123' } });
@@ -97,13 +97,13 @@ describe('Handler', function () {
         // Upload of the media
         .put(repoPath + 'media/2015-06-awesomeness-is-awesome/' + mediaFilename, {
           //TODO: Change this commit message to at least be "new media" instead
-          message: 'new content',
+          message: 'new media',
           content: fileContent.toString('base64'),
         })
         .reply(201, { content : { sha : 'abc123' } })
         // Upload of the content
         .put(repoPath + '_posts/2015-06-30-awesomeness-is-awesome.md', {
-          message: 'new content',
+          message: 'new article',
           content: encodedContent.toString('base64'),
         })
         .reply(201, { content : { sha : 'abc123' } });
