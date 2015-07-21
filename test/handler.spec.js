@@ -31,7 +31,7 @@ describe('Handler', function () {
       var token = 'abc123';
       var user = 'username';
       var repo = 'repo';
-      var path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.html';
+      var path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
 
       var encodedContent = new Buffer(
         '---\n' +
@@ -102,7 +102,7 @@ describe('Handler', function () {
         })
         .reply(201, { content : { sha : 'abc123' } })
         // Upload of the content
-        .put(repoPath + '_posts/2015-06-30-awesomeness-is-awesome.html', {
+        .put(repoPath + '_posts/2015-06-30-awesomeness-is-awesome.md', {
           message: 'new content',
           content: encodedContent.toString('base64'),
         })
