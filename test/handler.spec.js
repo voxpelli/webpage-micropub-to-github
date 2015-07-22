@@ -231,6 +231,52 @@ describe('Handler', function () {
         });
     });
 
+    it('should set a custom commit message when formatter returns a category', function () {
+      var token = 'abc123';
+      var user = 'username';
+      var repo = 'repo';
+      var path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-hello-world.md';
+
+      var encodedContent = new Buffer(
+        '---\n' +
+        'layout: micropubpost\n' +
+        'date: \'2015-06-30T14:20:00.000Z\'\n' +
+        'title: null\n' +
+        'slug: hello-world\n' +
+        'category: social\n' +
+        '---\n' +
+        'hello world\n'
+      );
+      var base64 = encodedContent.toString('base64');
+      console.log(base64);
+
+      var mock = nock('https://api.github.com/')
+        .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
+        .put(path, {
+          message: 'uploading social interaction',
+          content: base64,
+        })
+        .reply(201, { content : { sha : 'abc123' } });
+
+      return handler(
+          {
+            token: token,
+            user: user,
+            repo: repo,
+          }, {
+            'type': ['h-entry'],
+            'properties': {
+              'content': ['hello world'],
+            },
+          },
+          'http://example.com/foo/'
+        )
+        .then(function (url) {
+          mock.done();
+          url.should.equal('http://example.com/foo/social/2015/06/hello-world/');
+        });
+    });
+
 
   });
 
