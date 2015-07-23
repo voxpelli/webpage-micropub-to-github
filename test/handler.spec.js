@@ -176,7 +176,7 @@ describe('Handler', function () {
             'properties': {
               'content': ['hello world'],
               'name': ['awesomeness is awesome'],
-              'url': 'http://example.com/foo/2015/06/awesomeness-is-awesome/',
+              'url': ['http://example.com/foo/2015/06/awesomeness-is-awesome/'],
             },
           },
           'http://example.com/foo/'
@@ -248,7 +248,6 @@ describe('Handler', function () {
         'hello world\n'
       );
       var base64 = encodedContent.toString('base64');
-      console.log(base64);
 
       var mock = nock('https://api.github.com/')
         .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
