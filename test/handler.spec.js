@@ -239,14 +239,14 @@ describe('Handler', function () {
       var token = 'abc123';
       var user = 'username';
       var repo = 'repo';
-      var path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-hello-world.md';
+      var path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-51600.md';
 
       var encodedContent = new Buffer(
         '---\n' +
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
         'title: null\n' +
-        'slug: hello-world\n' +
+        'slug: \'51600\'\n' +
         'lang: en\n' +
         'category: social\n' +
         '---\n' +
@@ -277,7 +277,7 @@ describe('Handler', function () {
         )
         .then(function (url) {
           mock.done();
-          url.should.equal('http://example.com/foo/social/2015/06/hello-world/');
+          url.should.equal('http://example.com/foo/social/2015/06/51600/');
         });
     });
 
