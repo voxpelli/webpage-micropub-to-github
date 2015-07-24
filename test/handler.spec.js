@@ -39,6 +39,7 @@ describe('Handler', function () {
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
         'title: awesomeness is awesome\n' +
         'slug: awesomeness-is-awesome\n' +
+        'lang: en\n' +
         '---\n' +
         'hello world\n'
       );
@@ -86,6 +87,7 @@ describe('Handler', function () {
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
         'title: awesomeness is awesome\n' +
         'slug: awesomeness-is-awesome\n' +
+        'lang: en\n' +
         'mf-photo:\n' +
         '  - \'http://example.com/foo/media/2015-06-awesomeness-is-awesome/' + mediaFilename + '\'\n' +
         '---\n' +
@@ -144,6 +146,7 @@ describe('Handler', function () {
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
         'title: awesomeness is awesome\n' +
         'slug: awesomeness-is-awesome\n' +
+        'lang: en\n' +
         '---\n' +
         'hello world\n'
       );
@@ -199,6 +202,7 @@ describe('Handler', function () {
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
         'title: awesomeness is awesome\n' +
         'slug: awesomeness-is-awesome\n' +
+        'lang: en\n' +
         '---\n' +
         'hello world\n'
       );
@@ -243,6 +247,7 @@ describe('Handler', function () {
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
         'title: null\n' +
         'slug: hello-world\n' +
+        'lang: en\n' +
         'category: social\n' +
         '---\n' +
         'hello world\n'
