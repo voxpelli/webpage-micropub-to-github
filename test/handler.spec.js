@@ -38,8 +38,8 @@ describe('Handler', function () {
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
         'title: awesomeness is awesome\n' +
-        'slug: awesomeness-is-awesome\n' +
         'lang: en\n' +
+        'slug: awesomeness-is-awesome\n' +
         '---\n' +
         'hello world\n'
       );
@@ -62,6 +62,7 @@ describe('Handler', function () {
             'properties': {
               'content': ['hello world'],
               'name': ['awesomeness is awesome'],
+              'lang': ['en'],
             },
           },
           'http://example.com/foo/'
@@ -86,8 +87,8 @@ describe('Handler', function () {
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
         'title: awesomeness is awesome\n' +
-        'slug: awesomeness-is-awesome\n' +
         'lang: en\n' +
+        'slug: awesomeness-is-awesome\n' +
         'mf-photo:\n' +
         '  - \'http://example.com/foo/media/2015-06-awesomeness-is-awesome/' + mediaFilename + '\'\n' +
         '---\n' +
@@ -120,6 +121,7 @@ describe('Handler', function () {
             'properties': {
               'content': ['hello world'],
               'name': ['awesomeness is awesome'],
+              'lang': ['en'],
             },
             files: {
               photo: [{filename: 'foo.jpg', buffer: fileContent}]
@@ -145,8 +147,8 @@ describe('Handler', function () {
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
         'title: awesomeness is awesome\n' +
-        'slug: awesomeness-is-awesome\n' +
         'lang: en\n' +
+        'slug: awesomeness-is-awesome\n' +
         '---\n' +
         'hello world\n'
       );
@@ -180,6 +182,7 @@ describe('Handler', function () {
               'content': ['hello world'],
               'name': ['awesomeness is awesome'],
               'url': ['http://example.com/foo/2015/06/awesomeness-is-awesome/'],
+              'lang': ['en'],
             },
           },
           'http://example.com/foo/'
@@ -201,8 +204,8 @@ describe('Handler', function () {
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
         'title: awesomeness is awesome\n' +
-        'slug: awesomeness-is-awesome\n' +
         'lang: en\n' +
+        'slug: awesomeness-is-awesome\n' +
         '---\n' +
         'hello world\n'
       );
@@ -225,6 +228,7 @@ describe('Handler', function () {
             'properties': {
               'content': ['hello world'],
               'name': ['awesomeness is awesome'],
+              'lang': ['en'],
             },
           },
           'http://example.com/foo/'
@@ -246,8 +250,8 @@ describe('Handler', function () {
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
         'title: null\n' +
-        'slug: \'51600\'\n' +
         'lang: en\n' +
+        'slug: \'51600\'\n' +
         'category: social\n' +
         '---\n' +
         'hello world\n'
@@ -271,6 +275,7 @@ describe('Handler', function () {
             'type': ['h-entry'],
             'properties': {
               'content': ['hello world'],
+              'lang': ['en'],
             },
           },
           'http://example.com/foo/'
