@@ -178,10 +178,10 @@ describe('Handler', function () {
             repo: repo,
           }, {
             'type': ['h-entry'],
+            'url': 'http://example.com/foo/2015/06/awesomeness-is-awesome/',
             'properties': {
               'content': ['hello world'],
               'name': ['awesomeness is awesome'],
-              'url': ['http://example.com/foo/2015/06/awesomeness-is-awesome/'],
               'lang': ['en'],
             },
           },
