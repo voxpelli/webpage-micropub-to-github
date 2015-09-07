@@ -286,6 +286,54 @@ describe('Handler', function () {
         });
     });
 
+    it('should format HTML to Markdown and send content', function () {
+      var token = 'abc123';
+      var user = 'username';
+      var repo = 'repo';
+      var path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
+
+      var encodedContent = new Buffer(
+        '---\n' +
+        'layout: micropubpost\n' +
+        'date: \'2015-06-30T14:20:00.000Z\'\n' +
+        'title: awesomeness is awesome\n' +
+        'lang: en\n' +
+        'slug: awesomeness-is-awesome\n' +
+        '---\n' +
+        '**hello world**\n'
+      );
+
+      var mock = nock('https://api.github.com/')
+        .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
+        .put(path, {
+          message: 'uploading article',
+          content: encodedContent.toString('base64'),
+        })
+        .reply(201, { content : { sha : 'abc123' } });
+
+      return handler(
+          {
+            token: token,
+            user: user,
+            repo: repo,
+          }, {
+            'type': ['h-entry'],
+            'properties': {
+              'content': [{
+                'html': '<strong>hello world</strong>',
+                'value': 'hello world',
+              }],
+              'name': ['awesomeness is awesome'],
+              'lang': ['en'],
+            },
+          },
+          'http://example.com/foo/'
+        )
+        .then(function (url) {
+          mock.done();
+          url.should.equal('http://example.com/foo/2015/06/awesomeness-is-awesome/');
+        });
+    });
 
   });
 
