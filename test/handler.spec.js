@@ -249,7 +249,7 @@ describe('Handler', function () {
         '---\n' +
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
-        'title: null\n' +
+        'title: \'\'\n' +
         'lang: en\n' +
         'slug: \'51600\'\n' +
         'category: social\n' +
