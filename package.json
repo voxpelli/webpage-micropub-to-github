@@ -8,7 +8,7 @@
   "homepage": "https://github.com/voxpelli/webpage-micropub-to-github",
   "repository": {
     "type": "git",
-    "url": "git://github.com/voxpelli/node-one-page.git"
+    "url": "git://github.com/voxpelli/webpage-micropub-to-github.git"
   },
   "main": "./lib/main",
   "directories": {
