@@ -4,7 +4,3 @@
 # Should ignore code coverage reports
 
 /coverage
-
-# There shouldn't every be an SQL-file committed, but for debugging purposes they may be handy
-
-*.sql
