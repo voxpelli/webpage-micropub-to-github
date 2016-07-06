@@ -1,6 +1,6 @@
 {
   "name": "micropub-to-github",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "license": "MIT",
   "private": true,
   "description": "An endpoint that accepts Micropub requests, formats them into Jekyll posts and pushes them to a configured GitHub repository.",
