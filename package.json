@@ -16,8 +16,8 @@
   },
   "scripts": {
     "start": "node .",
-    "test": "node -e \"require('grunt').tasks(['test']);\"",
-    "test-all": "node -e \"require('grunt').tasks(['test-all']);\"",
+    "test": "installed-check -e . && node -e \"require('grunt').tasks(['test']);\"",
+    "test-all": "installed-check -e . && node -e \"require('grunt').tasks(['test-all']);\"",
     "prepush": "npm test"
   },
   "engines": {
@@ -29,6 +29,7 @@
     "dotenv": "^1.2.0",
     "grunt": "^0.4.5",
     "husky": "^0.7.0",
+    "installed-check": "^2.0.0",
     "istanbul": "^0.3.17",
     "lintlovin": "^1.15.1",
     "mocha": "^2.2.5",
