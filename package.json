@@ -20,6 +20,9 @@
     "test-all": "node -e \"require('grunt').tasks(['test-all']);\"",
     "prepush": "npm test"
   },
+  "engines": {
+    "node": ">=5.0.0"
+  },
   "devDependencies": {
     "chai": "^3.0.0",
     "chai-as-promised": "^5.1.0",
