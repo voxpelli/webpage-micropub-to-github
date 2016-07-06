@@ -26,7 +26,7 @@
   "devDependencies": {
     "chai": "^3.0.0",
     "chai-as-promised": "^5.1.0",
-    "dotenv": "^1.2.0",
+    "dotenv": "^2.0.0",
     "grunt": "^0.4.5",
     "husky": "^0.7.0",
     "installed-check": "^2.0.0",
