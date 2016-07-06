@@ -1,6 +1,3 @@
-/* jshint node: true */
-/* global beforeEach, afterEach, describe, it */
-
 'use strict';
 
 var chai = require('chai');
@@ -26,7 +23,6 @@ describe('Handler', function () {
   });
 
   describe('main', function () {
-
     it('should format and send content', function () {
       var token = 'abc123';
       var user = 'username';
@@ -48,25 +44,26 @@ describe('Handler', function () {
         .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
         .put(path, {
           message: 'uploading article',
-          content: encodedContent.toString('base64'),
+          content: encodedContent.toString('base64')
         })
-        .reply(201, { content : { sha : 'abc123' } });
+        .reply(201, { content: { sha: 'abc123' } });
 
       return handler(
-          {
-            token: token,
-            user: user,
-            repo: repo,
-          }, {
-            'type': ['h-entry'],
-            'properties': {
-              'content': ['hello world'],
-              'name': ['awesomeness is awesome'],
-              'lang': ['en'],
-            },
-          },
-          'http://example.com/foo/'
-        )
+        {
+          token: token,
+          user: user,
+          repo: repo
+        },
+        {
+          'type': ['h-entry'],
+          'properties': {
+            'content': ['hello world'],
+            'name': ['awesomeness is awesome'],
+            'lang': ['en']
+          }
+        },
+        'http://example.com/foo/'
+      )
         .then(function (url) {
           mock.done();
           url.should.equal('http://example.com/foo/2015/06/awesomeness-is-awesome/');
@@ -99,36 +96,36 @@ describe('Handler', function () {
         .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
         // Upload of the media
         .put(repoPath + 'media/2015-06-awesomeness-is-awesome/' + mediaFilename, {
-          //TODO: Change this commit message to at least be "new media" instead
+          // TODO: Change this commit message to at least be "new media" instead
           message: 'uploading media',
-          content: fileContent.toString('base64'),
+          content: fileContent.toString('base64')
         })
-        .reply(201, { content : { sha : 'abc123' } })
+        .reply(201, { content: { sha: 'abc123' } })
         // Upload of the content
         .put(repoPath + '_posts/2015-06-30-awesomeness-is-awesome.md', {
           message: 'uploading article',
-          content: encodedContent.toString('base64'),
+          content: encodedContent.toString('base64')
         })
-        .reply(201, { content : { sha : 'abc123' } });
+        .reply(201, { content: { sha: 'abc123' } });
 
       return handler(
-          {
-            token: token,
-            user: user,
-            repo: repo,
-          }, {
-            'type': ['h-entry'],
-            'properties': {
-              'content': ['hello world'],
-              'name': ['awesomeness is awesome'],
-              'lang': ['en'],
-            },
-            files: {
-              photo: [{filename: 'foo.jpg', buffer: fileContent}]
-            }
+        {
+          token: token,
+          user: user,
+          repo: repo
+        }, {
+          'type': ['h-entry'],
+          'properties': {
+            'content': ['hello world'],
+            'name': ['awesomeness is awesome'],
+            'lang': ['en']
           },
-          'http://example.com/foo/'
-        )
+          files: {
+            photo: [{filename: 'foo.jpg', buffer: fileContent}]
+          }
+        },
+        'http://example.com/foo/'
+      )
         .then(function (url) {
           mock.done();
           url.should.equal('http://example.com/foo/2015/06/awesomeness-is-awesome/');
@@ -157,7 +154,7 @@ describe('Handler', function () {
       var mock = nock('https://api.github.com/')
         .put(path, {
           message: 'uploading article',
-          content: base64,
+          content: base64
         })
         .reply(422, {})
 
@@ -167,26 +164,26 @@ describe('Handler', function () {
         .put(path, {
           message: 'uploading article',
           content: base64,
-          sha: sha,
+          sha: sha
         })
-        .reply(201, { content : { sha : 'xyz789' } });
+        .reply(201, { content: { sha: 'xyz789' } });
 
       return handler(
-          {
-            token: token,
-            user: user,
-            repo: repo,
-          }, {
-            'type': ['h-entry'],
-            'url': 'http://example.com/foo/2015/06/awesomeness-is-awesome/',
-            'properties': {
-              'content': ['hello world'],
-              'name': ['awesomeness is awesome'],
-              'lang': ['en'],
-            },
-          },
-          'http://example.com/foo/'
-        )
+        {
+          token: token,
+          user: user,
+          repo: repo
+        }, {
+          'type': ['h-entry'],
+          'url': 'http://example.com/foo/2015/06/awesomeness-is-awesome/',
+          'properties': {
+            'content': ['hello world'],
+            'name': ['awesomeness is awesome'],
+            'lang': ['en']
+          }
+        },
+        'http://example.com/foo/'
+      )
         .then(function (url) {
           mock.done();
           url.should.equal('http://example.com/foo/2015/06/awesomeness-is-awesome/');
@@ -214,25 +211,25 @@ describe('Handler', function () {
       var mock = nock('https://api.github.com/')
         .put(path, {
           message: 'uploading article',
-          content: base64,
+          content: base64
         })
         .reply(422, {});
 
       return handler(
-          {
-            token: token,
-            user: user,
-            repo: repo,
-          }, {
-            'type': ['h-entry'],
-            'properties': {
-              'content': ['hello world'],
-              'name': ['awesomeness is awesome'],
-              'lang': ['en'],
-            },
-          },
-          'http://example.com/foo/'
-        )
+        {
+          token: token,
+          user: user,
+          repo: repo
+        }, {
+          'type': ['h-entry'],
+          'properties': {
+            'content': ['hello world'],
+            'name': ['awesomeness is awesome'],
+            'lang': ['en']
+          }
+        },
+        'http://example.com/foo/'
+      )
         .then(function (url) {
           mock.done();
           url.should.equal(false);
@@ -262,24 +259,24 @@ describe('Handler', function () {
         .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
         .put(path, {
           message: 'uploading social interaction',
-          content: base64,
+          content: base64
         })
-        .reply(201, { content : { sha : 'abc123' } });
+        .reply(201, { content: { sha: 'abc123' } });
 
       return handler(
-          {
-            token: token,
-            user: user,
-            repo: repo,
-          }, {
-            'type': ['h-entry'],
-            'properties': {
-              'content': ['hello world'],
-              'lang': ['en'],
-            },
-          },
-          'http://example.com/foo/'
-        )
+        {
+          token: token,
+          user: user,
+          repo: repo
+        }, {
+          'type': ['h-entry'],
+          'properties': {
+            'content': ['hello world'],
+            'lang': ['en']
+          }
+        },
+        'http://example.com/foo/'
+      )
         .then(function (url) {
           mock.done();
           url.should.equal('http://example.com/foo/social/2015/06/51600/');
@@ -307,34 +304,32 @@ describe('Handler', function () {
         .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
         .put(path, {
           message: 'uploading article',
-          content: encodedContent.toString('base64'),
+          content: encodedContent.toString('base64')
         })
-        .reply(201, { content : { sha : 'abc123' } });
+        .reply(201, { content: { sha: 'abc123' } });
 
       return handler(
-          {
-            token: token,
-            user: user,
-            repo: repo,
-          }, {
-            'type': ['h-entry'],
-            'properties': {
-              'content': [{
-                'html': '<strong>hello world</strong>',
-                'value': 'hello world',
-              }],
-              'name': ['awesomeness is awesome'],
-              'lang': ['en'],
-            },
-          },
-          'http://example.com/foo/'
-        )
+        {
+          token: token,
+          user: user,
+          repo: repo
+        }, {
+          'type': ['h-entry'],
+          'properties': {
+            'content': [{
+              'html': '<strong>hello world</strong>',
+              'value': 'hello world'
+            }],
+            'name': ['awesomeness is awesome'],
+            'lang': ['en']
+          }
+        },
+        'http://example.com/foo/'
+      )
         .then(function (url) {
           mock.done();
           url.should.equal('http://example.com/foo/2015/06/awesomeness-is-awesome/');
         });
     });
-
   });
-
 });
