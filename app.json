@@ -1,0 +1,48 @@
+{
+  "name": "Micropub to GitHub",
+  "description": "A micropub endpoints that accepts micropub requests, formats them into Jekyll posts and then pushes them to a configured GitHub repository.",
+  "keywords": [
+    "indieweb",
+    "micropub",
+    "api",
+    "jekyll"
+  ],
+  "repository": "https://github.com/voxpelli/webpage-micropub-to-github",
+  "env": {
+    "MICROPUB_GITHUB_TOKEN": {
+      "description": "An access token for the GitHub API. Get one at: https://github.com/settings/tokens",
+      "required": true
+    },
+    "MICROPUB_GITHUB_USER": {
+      "description": "The GitHub user to which the configured repositories belongs.",
+      "required": true
+    },
+
+    "MICROPUB_SITE_GITHUB_REPO": {
+      "description": "The name of your GitHub repository.",
+      "required": true
+    },
+    "MICROPUB_SITE_URL": {
+      "description": "The URL to your site.",
+      "required": true
+    },
+
+    "MICROPUB_TOKEN_ENDPOINT": {
+      "description": "The token endpoint to verify the micropub token against. See: https://indieweb.org/token-endpoint",
+      "required": true,
+      "value": "https://tokens.indieauth.com/token"
+    },
+    "MICROPUB_TOKEN_ME": {
+      "description": "Your personal domain name that the micropub token should represent. Defaults to site URL."
+    },
+
+    "MICROPUB_OPTION_DERIVE_LANGUAGES": {
+      "description": "A comma separated list of languages to autodetect. Eg: eng,swe"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
