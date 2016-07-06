@@ -10,6 +10,10 @@ Enables updating ones Jekyll blog through Micropub-supporting tools such as [Qui
 
 The Micropub protocol is part of the [IndieWeb](https://indieweb.org/) movement.
 
+## Requirements
+
+Requires at least Node.js 5.0.0.
+
 ## Setup
 
 ### On Heroku:
@@ -20,9 +24,13 @@ The Micropub protocol is part of the [IndieWeb](https://indieweb.org/) movement.
 
 Install it like a normal node.js application and adds the needed configuration through environment variables, either by copying the `sample.env` as `.env` and filling the values in there or by setting them through any other mechanism.
 
-## Requirements
+## Micropub endpoint discovery
 
-Requires at least Node.js 5.0.0, but has no other other external dependencies
+After a successful deploy the standard endpoint can be found at the `/micropub/main` path where you deployed the application, like eg. `https://example.com/micropub/main`.
+
+If you specified more than one site by using the `MICROPUB_SITES_JSON` variable, then each one of those will be available under the name of their key like `/micropub/key-name`.
+
+You need to add proper discovery for [your Micropub endpoint](https://indieweb.org/micropub#Endpoint_Discovery) as well as [your token endpoint](https://indieweb.org/obtaining-an-access-token#Discovery) to your site to enable tools to discover what endpoints it should talk to.
 
 ## Current status
 
