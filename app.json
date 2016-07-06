@@ -1,6 +1,6 @@
 {
   "name": "Micropub to GitHub",
-  "description": "A micropub endpoints that accepts micropub requests, formats them into Jekyll posts and then pushes them to a configured GitHub repository.",
+  "description": "An endpoint that accepts Micropub requests, formats them into Jekyll posts and pushes them to a configured GitHub repository.",
   "keywords": [
     "indieweb",
     "micropub",

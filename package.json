@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
-  "description": "",
+  "description": "An endpoint that accepts Micropub requests, formats them into Jekyll posts and pushes them to a configured GitHub repository.",
   "author": "Pelle Wessman <pelle@kodfabrik.se> (http://kodfabrik.se/)",
   "homepage": "https://github.com/voxpelli/webpage-micropub-to-github",
   "repository": {
