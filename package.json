@@ -26,6 +26,7 @@
   "devDependencies": {
     "chai": "^3.0.0",
     "chai-as-promised": "^5.1.0",
+    "coveralls": "^2.11.9",
     "dependency-check": "^2.5.2",
     "eslint": "^2.13.1",
     "eslint-config-semistandard": "^6.0.2",
