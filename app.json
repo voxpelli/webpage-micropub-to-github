@@ -33,11 +33,13 @@
       "value": "https://tokens.indieauth.com/token"
     },
     "MICROPUB_TOKEN_ME": {
-      "description": "Your personal domain name that the micropub token should represent. Defaults to site URL."
+      "description": "Your personal domain name that the micropub token should represent. Defaults to site URL.",
+      "required": false
     },
 
     "MICROPUB_OPTION_DERIVE_LANGUAGES": {
-      "description": "A comma separated list of languages to autodetect. Eg: eng,swe"
+      "description": "A comma separated list of languages to autodetect. Eg: eng,swe",
+      "required": false
     }
   },
   "buildpacks": [
