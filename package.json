@@ -18,6 +18,7 @@
     "start": "node .",
     "mocha": "NODE_ENV=test istanbul cover _mocha -- -u exports -R spec test/**/*.spec.js",
     "test": "installed-check -e && eslint *.js lib/** test/** && dependency-check . --entry test/handler.spec.js && npm run mocha",
+    "watch": "watch 'npm test' lib/ test/",
     "prepush": "npm test"
   },
   "engines": {
@@ -38,7 +39,8 @@
     "istanbul": "^0.3.17",
     "mocha": "^2.2.5",
     "nock": "^2.6.0",
-    "sinon": "^1.15.4"
+    "sinon": "^1.15.4",
+    "watch": "^0.19.1"
   },
   "dependencies": {
     "bunyan-duckling": "^1.0.0",
