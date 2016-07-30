@@ -40,10 +40,6 @@
     "MICROPUB_OPTION_DERIVE_LANGUAGES": {
       "description": "A comma separated list of languages to autodetect. Eg: eng,swe",
       "required": false
-    },
-    "MICROPUB_PERMALINK_STYLE": {
-      "description": "The Jekyll permalink structure. Defaults to whatever the Jekyll repo is configured to.",
-      "required": false
     }
   },
   "buildpacks": [

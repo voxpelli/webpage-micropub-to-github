@@ -48,6 +48,7 @@
     "express": "^4.13.0",
     "format-microformat": "^0.7.0",
     "github-publish": "^1.1.0",
+    "js-yaml": "^3.6.1",
     "micropub-express": "^0.4.0"
   }
 }

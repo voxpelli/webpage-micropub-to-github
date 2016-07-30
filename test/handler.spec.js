@@ -10,11 +10,16 @@ chai.should();
 
 describe('Handler', function () {
   var handler = require('../lib/handler.js');
+  var handlerConfig;
   var clock;
 
   beforeEach(function () {
     nock.disableNetConnect();
     clock = sinon.useFakeTimers(1435674000000);
+    handlerConfig = {
+      noAutoConfigure: true,
+      permalinkStyle: '/:categories/:year/:month/:title/'
+    };
   });
 
   afterEach(function () {
@@ -62,7 +67,8 @@ describe('Handler', function () {
             'lang': ['en']
           }
         },
-        'http://example.com/foo/'
+        'http://example.com/foo/',
+        handlerConfig
       )
         .then(function (url) {
           mock.done();
@@ -124,7 +130,8 @@ describe('Handler', function () {
             photo: [{filename: 'foo.jpg', buffer: fileContent}]
           }
         },
-        'http://example.com/foo/'
+        'http://example.com/foo/',
+        handlerConfig
       )
         .then(function (url) {
           mock.done();
@@ -182,7 +189,8 @@ describe('Handler', function () {
             'lang': ['en']
           }
         },
-        'http://example.com/foo/'
+        'http://example.com/foo/',
+        handlerConfig
       )
         .then(function (url) {
           mock.done();
@@ -228,7 +236,8 @@ describe('Handler', function () {
             'lang': ['en']
           }
         },
-        'http://example.com/foo/'
+        'http://example.com/foo/',
+        handlerConfig
       )
         .then(function (url) {
           mock.done();
@@ -275,7 +284,8 @@ describe('Handler', function () {
             'lang': ['en']
           }
         },
-        'http://example.com/foo/'
+        'http://example.com/foo/',
+        handlerConfig
       )
         .then(function (url) {
           mock.done();
@@ -324,7 +334,8 @@ describe('Handler', function () {
             'lang': ['en']
           }
         },
-        'http://example.com/foo/'
+        'http://example.com/foo/',
+        handlerConfig
       )
         .then(function (url) {
           mock.done();
