@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.0 - 2016-08-17
+
+* **Feature** – derviced categories are now configurable
+* **Somewhat breaking** – this project now requires Node.js 6.x
+
 ## 0.3.1 - 2016-07-30
 
 * **Bug fix** – the caching of the auto-configuration didn't work
