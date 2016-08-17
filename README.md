@@ -47,6 +47,10 @@ Unsupported:
 * Partial update
 * Deletes
 
+## Configuration options
+
+See the `sample.env` file.
+
 ## Modules used
 
 * [micropub-express](https://github.com/voxpelli/node-micropub-express) – an [Express](http://expressjs.com/) Micropub endpoint that accepts and verifies Micropub requests and calls a callback with a parsed `micropubDocument`
