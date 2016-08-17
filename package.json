@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "node .",
-    "mocha": "NODE_ENV=test istanbul cover _mocha -- -u exports -R spec test/**/*.spec.js",
+    "mocha": "NODE_ENV=test DOTENV_FILE=test/test.env istanbul cover _mocha -- -u exports -R spec test/**/*.spec.js",
     "test": "installed-check -e && eslint *.js lib/** test/** && dependency-check . --entry test/handler.spec.js && npm run mocha",
     "watch": "watch 'npm test' lib/ test/",
     "prepush": "npm test"
