@@ -22,7 +22,7 @@
     "prepush": "npm test"
   },
   "engines": {
-    "node": ">=5.0.0"
+    "node": ">=6.0.0"
   },
   "devDependencies": {
     "chai": "^3.0.0",
