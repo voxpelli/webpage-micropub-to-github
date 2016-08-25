@@ -1,7 +1,7 @@
 # Micropub to GitHub
 
 [![Build Status](https://travis-ci.org/voxpelli/webpage-micropub-to-github.svg?branch=master)](https://travis-ci.org/voxpelli/webpage-micropub-to-github)
-[![Coverage Status](https://coveralls.io/repos/voxpelli/webpage-micropub-to-github/badge.svg)](https://coveralls.io/r/voxpelli/webpage-micropub-to-github)
+[![Coverage Status](https://coveralls.io/repos/github/voxpelli/webpage-micropub-to-github/badge.svg?branch=master)](https://coveralls.io/github/voxpelli/webpage-micropub-to-github?branch=master)
 [![Dependency Status](https://gemnasium.com/voxpelli/webpage-micropub-to-github.svg)](https://gemnasium.com/voxpelli/webpage-micropub-to-github)
 
 An endpoint that accepts [Micropub](http://micropub.net/) requests, formats them into [Jekyll](http://jekyllrb.com/) posts and pushes them to a configured GitHub repository.
