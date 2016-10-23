@@ -24,6 +24,10 @@ Requires at least Node.js 6.0.0.
 
 Install it like a normal node.js application and adds the needed configuration through environment variables, either by copying the `sample.env` as `.env` and filling the values in there or by setting them through any other mechanism.
 
+### Yarn-support
+
+This project contains a [https://yarnpkg.com/](Yarn) lock file which is a faster and more secure alternative to the npm client. It can be used with [eg. Heroku](https://github.com/heroku/heroku-buildpack-nodejs/issues/337#issuecomment-253286196).
+
 ## Micropub endpoint discovery
 
 After a successful deploy the standard endpoint can be found at the `/micropub/main` path where you deployed the application, like eg. `https://example.com/micropub/main`.
