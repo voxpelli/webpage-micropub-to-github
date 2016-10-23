@@ -12,7 +12,7 @@ The Micropub protocol is part of the [IndieWeb](https://indieweb.org/) movement.
 
 ## Requirements
 
-Requires at least Node.js 5.0.0.
+Requires at least Node.js 6.0.0.
 
 ## Setup
 
