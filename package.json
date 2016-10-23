@@ -49,6 +49,6 @@
     "fulfills": "^1.0.0",
     "github-publish": "^1.1.0",
     "js-yaml": "^3.6.1",
-    "micropub-express": "^0.4.0"
+    "micropub-express": "^0.5.0"
   }
 }
