@@ -1,25 +1,25 @@
 'use strict';
 
-var chai = require('chai');
-var chaiAsPromised = require('chai-as-promised');
-var nock = require('nock');
-var sinon = require('sinon');
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
+const nock = require('nock');
+const sinon = require('sinon');
 
 chai.use(chaiAsPromised);
 chai.should();
 
 describe('Handler', function () {
-  var handler = require('../lib/handler.js');
-  var handlerConfig;
-  var clock;
+  const handler = require('../lib/handler.js');
+  let handlerConfig;
+  let clock;
 
   const basicTest = function ({ content, message, finalUrl }) {
-    var token = 'abc123';
-    var user = 'username';
-    var repo = 'repo';
-    var path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
+    const token = 'abc123';
+    const user = 'username';
+    const repo = 'repo';
+    const path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
 
-    var encodedContent = new Buffer(content || (
+    const encodedContent = new Buffer(content || (
       '---\n' +
       'layout: micropubpost\n' +
       'date: \'2015-06-30T14:20:00.000Z\'\n' +
@@ -30,7 +30,7 @@ describe('Handler', function () {
       'hello world\n'
     )).toString('base64');
 
-    var mock = nock('https://api.github.com/')
+    const mock = nock('https://api.github.com/')
       .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
       .put(path, {
         message: message || 'uploading article',
@@ -81,15 +81,15 @@ describe('Handler', function () {
     });
 
     it('should upload files prior to content', function () {
-      var token = 'abc123';
-      var user = 'username';
-      var repo = 'repo';
-      var repoPath = '/repos/' + user + '/' + repo + '/contents/';
-      var mediaFilename = 'foo.jpg';
+      const token = 'abc123';
+      const user = 'username';
+      const repo = 'repo';
+      const repoPath = '/repos/' + user + '/' + repo + '/contents/';
+      const mediaFilename = 'foo.jpg';
 
-      var fileContent = new Buffer('abc123');
+      const fileContent = new Buffer('abc123');
 
-      var encodedContent = new Buffer(
+      const encodedContent = new Buffer(
         '---\n' +
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
@@ -102,7 +102,7 @@ describe('Handler', function () {
         'hello world\n'
       );
 
-      var mock = nock('https://api.github.com/')
+      const mock = nock('https://api.github.com/')
         .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
         // Upload of the media
         .put(repoPath + 'media/2015-06-awesomeness-is-awesome/' + mediaFilename, {
@@ -144,13 +144,13 @@ describe('Handler', function () {
     });
 
     it('should override existing content if matching URL', function () {
-      var token = 'abc123';
-      var user = 'username';
-      var repo = 'repo';
-      var path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
-      var sha = 'abc123';
+      const token = 'abc123';
+      const user = 'username';
+      const repo = 'repo';
+      const path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
+      const sha = 'abc123';
 
-      var encodedContent = new Buffer(
+      const encodedContent = new Buffer(
         '---\n' +
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
@@ -160,9 +160,9 @@ describe('Handler', function () {
         '---\n' +
         'hello world\n'
       );
-      var base64 = encodedContent.toString('base64');
+      const base64 = encodedContent.toString('base64');
 
-      var mock = nock('https://api.github.com/')
+      const mock = nock('https://api.github.com/')
         .put(path, {
           message: 'uploading article',
           content: base64
@@ -203,12 +203,12 @@ describe('Handler', function () {
     });
 
     it('should not override existing content if no matching URL', function () {
-      var token = 'abc123';
-      var user = 'username';
-      var repo = 'repo';
-      var path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
+      const token = 'abc123';
+      const user = 'username';
+      const repo = 'repo';
+      const path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
 
-      var encodedContent = new Buffer(
+      const encodedContent = new Buffer(
         '---\n' +
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
@@ -218,9 +218,9 @@ describe('Handler', function () {
         '---\n' +
         'hello world\n'
       );
-      var base64 = encodedContent.toString('base64');
+      const base64 = encodedContent.toString('base64');
 
-      var mock = nock('https://api.github.com/')
+      const mock = nock('https://api.github.com/')
         .put(path, {
           message: 'uploading article',
           content: base64
@@ -250,12 +250,12 @@ describe('Handler', function () {
     });
 
     it('should set a custom commit message when formatter returns a category', function () {
-      var token = 'abc123';
-      var user = 'username';
-      var repo = 'repo';
-      var path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-51600.md';
+      const token = 'abc123';
+      const user = 'username';
+      const repo = 'repo';
+      const path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-51600.md';
 
-      var encodedContent = new Buffer(
+      const encodedContent = new Buffer(
         '---\n' +
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
@@ -266,9 +266,9 @@ describe('Handler', function () {
         '---\n' +
         'hello world\n'
       );
-      var base64 = encodedContent.toString('base64');
+      const base64 = encodedContent.toString('base64');
 
-      var mock = nock('https://api.github.com/')
+      const mock = nock('https://api.github.com/')
         .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
         .put(path, {
           message: 'uploading social interaction',
@@ -298,12 +298,12 @@ describe('Handler', function () {
     });
 
     it('should format HTML to Markdown and send content', function () {
-      var token = 'abc123';
-      var user = 'username';
-      var repo = 'repo';
-      var path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
+      const token = 'abc123';
+      const user = 'username';
+      const repo = 'repo';
+      const path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
 
-      var encodedContent = new Buffer(
+      const encodedContent = new Buffer(
         '---\n' +
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:20:00.000Z\'\n' +
@@ -314,7 +314,7 @@ describe('Handler', function () {
         '**hello world**\n'
       );
 
-      var mock = nock('https://api.github.com/')
+      const mock = nock('https://api.github.com/')
         .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
         .put(path, {
           message: 'uploading article',
