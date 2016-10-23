@@ -3,4 +3,5 @@ node_js:
   - 'node'
   - '6'
 sudo: false
-after_script: "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls.js"
+after_success:
+  - "cat coverage/lcov.info | ./node_modules/.bin/coveralls"
