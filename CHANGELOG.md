@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.1 – 2017-01-21
+
+* **Improvement** – using new `format-microformat` version that by default publish all posts in the past by 15 seconds to avoid time sync issues with build servers
+* **Improvement** – now includes a Yarn lock file
+* **Updated** – dependencies has been updated
+
 ## 0.4.0 - 2016-08-17
 
 * **Feature** – derviced categories are now configurable
