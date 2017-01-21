@@ -22,7 +22,7 @@ describe('Handler', function () {
     const encodedContent = new Buffer(content || (
       '---\n' +
       'layout: micropubpost\n' +
-      'date: \'2015-06-30T14:20:00.000Z\'\n' +
+      'date: \'2015-06-30T14:19:45.000Z\'\n' +
       'title: awesomeness is awesome\n' +
       'lang: en\n' +
       'slug: awesomeness-is-awesome\n' +
@@ -92,7 +92,7 @@ describe('Handler', function () {
       const encodedContent = new Buffer(
         '---\n' +
         'layout: micropubpost\n' +
-        'date: \'2015-06-30T14:20:00.000Z\'\n' +
+        'date: \'2015-06-30T14:19:45.000Z\'\n' +
         'title: awesomeness is awesome\n' +
         'lang: en\n' +
         'slug: awesomeness-is-awesome\n' +
@@ -153,7 +153,7 @@ describe('Handler', function () {
       const encodedContent = new Buffer(
         '---\n' +
         'layout: micropubpost\n' +
-        'date: \'2015-06-30T14:20:00.000Z\'\n' +
+        'date: \'2015-06-30T14:19:45.000Z\'\n' +
         'title: awesomeness is awesome\n' +
         'lang: en\n' +
         'slug: awesomeness-is-awesome\n' +
@@ -211,7 +211,7 @@ describe('Handler', function () {
       const encodedContent = new Buffer(
         '---\n' +
         'layout: micropubpost\n' +
-        'date: \'2015-06-30T14:20:00.000Z\'\n' +
+        'date: \'2015-06-30T14:19:45.000Z\'\n' +
         'title: awesomeness is awesome\n' +
         'lang: en\n' +
         'slug: awesomeness-is-awesome\n' +
@@ -253,15 +253,15 @@ describe('Handler', function () {
       const token = 'abc123';
       const user = 'username';
       const repo = 'repo';
-      const path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-51600.md';
+      const path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-51585.md';
 
       const encodedContent = new Buffer(
         '---\n' +
         'layout: micropubpost\n' +
-        'date: \'2015-06-30T14:20:00.000Z\'\n' +
+        'date: \'2015-06-30T14:19:45.000Z\'\n' +
         'title: \'\'\n' +
         'lang: en\n' +
-        'slug: \'51600\'\n' +
+        'slug: \'51585\'\n' +
         'category: social\n' +
         '---\n' +
         'hello world\n'
@@ -293,7 +293,7 @@ describe('Handler', function () {
       )
         .then(function (url) {
           mock.done();
-          url.should.equal('http://example.com/foo/social/2015/06/51600/');
+          url.should.equal('http://example.com/foo/social/2015/06/51585/');
         });
     });
 
@@ -306,7 +306,7 @@ describe('Handler', function () {
       const encodedContent = new Buffer(
         '---\n' +
         'layout: micropubpost\n' +
-        'date: \'2015-06-30T14:20:00.000Z\'\n' +
+        'date: \'2015-06-30T14:19:45.000Z\'\n' +
         'title: awesomeness is awesome\n' +
         'lang: en\n' +
         'slug: awesomeness-is-awesome\n' +
@@ -357,7 +357,7 @@ describe('Handler', function () {
         content: (
           '---\n' +
           'layout: micropubpost\n' +
-          'date: \'2015-06-30T14:20:00.000Z\'\n' +
+          'date: \'2015-06-30T14:19:45.000Z\'\n' +
           'title: awesomeness is awesome\n' +
           'lang: en\n' +
           'slug: awesomeness-is-awesome\n' +
