@@ -26,7 +26,7 @@ Install it like a normal node.js application and adds the needed configuration t
 
 ### Yarn-support
 
-This project contains a [https://yarnpkg.com/](Yarn) lock file which is a faster and more secure alternative to the npm client. It can be used with [eg. Heroku](https://github.com/heroku/heroku-buildpack-nodejs/issues/337#issuecomment-253286196).
+This project contains a [https://yarnpkg.com/](Yarn) lock file which is a faster and more secure alternative to the npm client.
 
 ## Micropub endpoint discovery
 
