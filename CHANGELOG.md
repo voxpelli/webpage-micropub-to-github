@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.3 – 2017-01-28
+
+* **Feature** – support `config` queries and include syndication targets in it
+
 ## 0.4.2 – 2017-01-28
 
 * **Feature** – configurable syndication targets, see `sample.env` and #9
