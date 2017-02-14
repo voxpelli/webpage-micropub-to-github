@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.4 – 2017-02-14
+
+* **Improvement** – includes updated `micropub-express` module that supports the [now standard](https://github.com/voxpelli/node-micropub-express/issues/7) `create` IndieAuth scope, that eg. Quill [now uses](https://github.com/aaronpk/Quill/commit/eab1a65f63f227bae126a554e3bf93aa05c70695)
+* **Updated** – dependencies has been updated
+
 ## 0.4.3 – 2017-01-28
 
 * **Feature** – support `config` queries and include syndication targets in it
