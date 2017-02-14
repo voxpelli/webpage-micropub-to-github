@@ -1417,9 +1417,9 @@ methods@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
 
-micropub-express@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/micropub-express/-/micropub-express-0.6.0.tgz#d97328ffd2d1bad5385a7b74d6458d05e3a378b3"
+micropub-express@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/micropub-express/-/micropub-express-0.7.1.tgz#96ef9cba14ce417ea0d11d9a9fab92e5cb50c721"
   dependencies:
     body-parser "^1.13.1"
     bunyan-duckling "^1.0.1"
