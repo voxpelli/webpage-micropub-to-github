@@ -19,7 +19,7 @@ describe('Handler', function () {
     const repo = 'repo';
     const path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
 
-    const encodedContent = new Buffer(content || (
+    const encodedContent = Buffer.from(content || (
       '---\n' +
       'layout: micropubpost\n' +
       'date: \'2015-06-30T14:19:45.000Z\'\n' +
@@ -87,9 +87,9 @@ describe('Handler', function () {
       const repoPath = '/repos/' + user + '/' + repo + '/contents/';
       const mediaFilename = 'foo.jpg';
 
-      const fileContent = new Buffer('abc123');
+      const fileContent = Buffer.from('abc123');
 
-      const encodedContent = new Buffer(
+      const encodedContent = Buffer.from(
         '---\n' +
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:19:45.000Z\'\n' +
@@ -150,7 +150,7 @@ describe('Handler', function () {
       const path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
       const sha = 'abc123';
 
-      const encodedContent = new Buffer(
+      const encodedContent = Buffer.from(
         '---\n' +
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:19:45.000Z\'\n' +
@@ -208,7 +208,7 @@ describe('Handler', function () {
       const repo = 'repo';
       const path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
 
-      const encodedContent = new Buffer(
+      const encodedContent = Buffer.from(
         '---\n' +
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:19:45.000Z\'\n' +
@@ -255,7 +255,7 @@ describe('Handler', function () {
       const repo = 'repo';
       const path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-51585.md';
 
-      const encodedContent = new Buffer(
+      const encodedContent = Buffer.from(
         '---\n' +
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:19:45.000Z\'\n' +
@@ -303,7 +303,7 @@ describe('Handler', function () {
       const repo = 'repo';
       const path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
 
-      const encodedContent = new Buffer(
+      const encodedContent = Buffer.from(
         '---\n' +
         'layout: micropubpost\n' +
         'date: \'2015-06-30T14:19:45.000Z\'\n' +
