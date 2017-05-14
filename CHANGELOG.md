@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.0 – 2017-05-14
+
+* **Feature** – post file names are now configurable
+* **Feature** – media file names are now configurable
+* **Bug fix** – corrected resolving of site options
+* **Bug fix** – corrected combined use of `MICROPUB_SITES_JSON` and `MICROPUB_SITE_URL`
+* **Updated** – dependencies has been updated
+
 ## 0.4.4 – 2017-02-14
 
 * **Improvement** – includes updated `micropub-express` module that supports the [now standard](https://github.com/voxpelli/node-micropub-express/issues/7) `create` IndieAuth scope, that eg. Quill [now uses](https://github.com/aaronpk/Quill/commit/eab1a65f63f227bae126a554e3bf93aa05c70695)
