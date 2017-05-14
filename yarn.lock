@@ -912,9 +912,9 @@ form-data@~2.1.1:
     combined-stream "^1.0.5"
     mime-types "^2.1.12"
 
-format-microformat@^0.9.0:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/format-microformat/-/format-microformat-0.9.1.tgz#28761c4c833a228c0c6b1f70ff69838fc77b5203"
+format-microformat@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/format-microformat/-/format-microformat-0.10.0.tgz#f6201dab5e743223f2db32808cead69b111a8cab"
   dependencies:
     ent "^2.2.0"
     escape-html "^1.0.3"
@@ -925,7 +925,6 @@ format-microformat@^0.9.0:
     lodash.clonedeepwith "^4.5.0"
     lodash.deburr "^4.1.0"
     lodash.defaultsdeep "^4.6.0"
-    strftime "^0.9.2"
     upndown "^2.0.2"
 
 formatio@1.2.0:
@@ -2111,10 +2110,6 @@ streamsearch@0.1.2:
 strftime@^0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/strftime/-/strftime-0.10.0.tgz#b3f0fa419295202a5a289f6d6be9f4909a617193"
-
-strftime@^0.9.2:
-  version "0.9.2"
-  resolved "https://registry.yarnpkg.com/strftime/-/strftime-0.9.2.tgz#bcca2861f29456d372aaf6a17811c8bc6f39f583"
 
 string-width@^1.0.1:
   version "1.0.2"
