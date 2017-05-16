@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## 0.6.0 – YYYY-MM-DD
+## 0.6.0 – 2017-05-16
 
 * **Breaking** – the format for configuring content-dependent categories have changed, now a JSON array
 * **Feature** – permalink styles and filename styles can now be content-dependent just like categories
