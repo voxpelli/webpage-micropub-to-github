@@ -912,9 +912,9 @@ form-data@~2.1.1:
     combined-stream "^1.0.5"
     mime-types "^2.1.12"
 
-format-microformat@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/format-microformat/-/format-microformat-0.10.0.tgz#f6201dab5e743223f2db32808cead69b111a8cab"
+format-microformat@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/format-microformat/-/format-microformat-0.10.1.tgz#158ca7676a6798902ae21a3b9db1d9d89edbcfb5"
   dependencies:
     ent "^2.2.0"
     escape-html "^1.0.3"

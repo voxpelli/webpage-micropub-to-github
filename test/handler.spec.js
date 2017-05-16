@@ -13,11 +13,14 @@ describe('Handler', function () {
   let handlerConfig;
   let clock;
 
-  const basicTest = function ({ content, message, finalUrl }) {
+  const basicTest = function ({ content, message, finalUrl, filename }) {
     const token = 'abc123';
     const user = 'username';
     const repo = 'repo';
-    const path = '/repos/' + user + '/' + repo + '/contents/_posts/2015-06-30-awesomeness-is-awesome.md';
+
+    filename = filename || '_posts/2015-06-30-awesomeness-is-awesome.md';
+
+    const path = '/repos/' + user + '/' + repo + '/contents/' + filename;
 
     const encodedContent = Buffer.from(content || (
       '---\n' +
@@ -348,10 +351,10 @@ describe('Handler', function () {
     });
 
     it('should support category deriving', function () {
-      handlerConfig.deriveCategory = {
-        'foo': 'abc = 123 AND foo = bar',
-        'xyz': 'content[] = "hello world"'
-      };
+      handlerConfig.deriveCategory = [
+        { value: 'foo', condition: 'abc = 123 AND foo = bar' },
+        { value: 'xyz', condition: 'content[] = "hello world"' }
+      ];
 
       return basicTest({
         content: (
@@ -367,6 +370,48 @@ describe('Handler', function () {
         ),
         message: 'uploading xyz',
         finalUrl: 'http://example.com/foo/xyz/2015/06/awesomeness-is-awesome/'
+      });
+    });
+
+    it('should support callback based permalink style', function () {
+      handlerConfig.permalinkStyle = [
+        { value: 'first/:slug', condition: 'content[] = "hello world"' },
+        { value: 'second/:slug', condition: 'abc = 123 AND foo = bar' }
+      ];
+
+      return basicTest({
+        content: (
+          '---\n' +
+          'layout: micropubpost\n' +
+          'date: \'2015-06-30T14:19:45.000Z\'\n' +
+          'title: awesomeness is awesome\n' +
+          'lang: en\n' +
+          'slug: awesomeness-is-awesome\n' +
+          '---\n' +
+          'hello world\n'
+        ),
+        finalUrl: 'http://example.com/foo/first/awesomeness-is-awesome'
+      });
+    });
+
+    it('should support callback based filename style', function () {
+      handlerConfig.filenameStyle = [
+        { value: 'first/:slug', condition: 'abc = 123 AND foo = bar' },
+        { value: 'second/:slug', condition: 'content[] = "hello world"' }
+      ];
+
+      return basicTest({
+        content: (
+          '---\n' +
+          'layout: micropubpost\n' +
+          'date: \'2015-06-30T14:19:45.000Z\'\n' +
+          'title: awesomeness is awesome\n' +
+          'lang: en\n' +
+          'slug: awesomeness-is-awesome\n' +
+          '---\n' +
+          'hello world\n'
+        ),
+        filename: 'second/awesomeness-is-awesome.md'
       });
     });
   });
