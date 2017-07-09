@@ -53,7 +53,33 @@ Unsupported:
 
 ## Configuration options
 
-See the `sample.env` file.
+See the `sample.env` file and the comments within it to see all configuration possibilities.
+
+### Advanced condition based configuration
+
+
+Some options, like `MICROPUB_FILENAME_STYLE`, `MICROPUB_MEDIA_FILES_STYLE`, `MICROPUB_PERMALINK_STYLE` and `MICROPUB_OPTION_DERIVE_CATEGORY` can be given different configurations for different types of content by setting up conditions for when each configuration applies.
+
+The conditions are set up by assing the environment variables a JSON object of the format:
+
+```json
+[
+  {
+    "condition": "bookmark OR name",
+    "value": "value-one"
+  },
+  {
+    "condition": "bookmark OR name",
+    "value": "value-two"
+  }
+]
+```
+
+The conditions are [fulfills expressions](https://github.com/voxpelli/node-fulfills#condition-syntax) that the fulfills module will apply against the properties of the document to be saved, so pretty much all properties that's going to be inserted inte the YAML Front Matter are available to be matched against. All values explicitly set in the Micropub request are availablr, but some defaults and derived values may or may not be available, depending on option configured.
+
+#### Examples of conditions
+
+* _Please open an issue and ask what condition you would want to set up_
 
 ## Modules used
 
