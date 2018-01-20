@@ -49,7 +49,7 @@
     "express": "^4.13.0",
     "format-microformat": "^0.10.1",
     "fulfills": "^1.0.0",
-    "github-publish": "^2.0.0",
+    "github-publish": "^3.0.0",
     "js-yaml": "^3.6.1",
     "micropub-express": "^0.7.1"
   }
