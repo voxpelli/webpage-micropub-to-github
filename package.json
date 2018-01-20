@@ -18,7 +18,7 @@
     "start": "node .",
     "mocha": "NODE_ENV=test DOTENV_FILE=test/test.env istanbul cover _mocha -- -u exports -R spec test/**/*.spec.js",
     "dependency-check": "JS_FILES=\"lib/*.js test/*.js\" && dependency-check . $JS_FILES && dependency-check . $JS_FILES --unused --no-dev",
-    "test": "installed-check -e && eslint . && npm run dependency-check && npm run mocha",
+    "test": "installed-check -e && eslint . && npm run --silent dependency-check && npm run --silent mocha",
     "prepush": "npm test"
   },
   "engines": {
