@@ -47,7 +47,7 @@
     "bunyan-duckling": "^1.0.0",
     "dotenv": "^4.0.0",
     "express": "^4.13.0",
-    "format-microformat": "^0.10.1",
+    "format-microformat": "^0.10.2",
     "fulfills": "^1.0.0",
     "github-publish": "^3.0.0",
     "js-yaml": "^3.6.1",

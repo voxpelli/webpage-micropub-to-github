@@ -67,7 +67,12 @@ Variable | Description
 `MICROPUB_FILENAME_STYLE` | File name and path for post.  Example: `_posts/:year-:month-:day-:slug`
 `MICROPUB_MEDIA_FILES_STYLE` | File name and path for media files. Example: `media/:year-:month-:slug/:filesslug`
 `MICROPUB_PERMALINK_STYLE` | [Jekyll permalink style](http://jekyllrb.com/docs/permalinks/). Example: `/:categories/:year/:month/:title/`
+`MICROPUB_LAYOUT_NAME` | The name of the Jekyll layout to use for the posts. Defaults to `microblogpost`
 `MICROPUB_OPTION_DERIVE_CATEGORY` | Override the default category
+
+#### Complex output styles
+
+These configuration options can all be given different values for different types of content by setting up conditions under which each configuration applies. See [conditional values](#conditional-values).
 
 ### Complex configuration
 Variable | Description
@@ -78,7 +83,6 @@ Variable | Description
 `MICROPUB_HOST` | Domain name to enforce. Will redirect requests to all other domain names and IP addresses that the endpoint can be accessed on.
 
 ### Conditional values
-Options like `MICROPUB_FILENAME_STYLE`, `MICROPUB_MEDIA_FILES_STYLE`, `MICROPUB_PERMALINK_STYLE` and `MICROPUB_OPTION_DERIVE_CATEGORY` can be given different configurations for different types of content by setting up conditions for when each configuration applies.
 
 Conditions are set up by assessing the environment variables using a JSON object of the format:
 

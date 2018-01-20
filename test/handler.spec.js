@@ -65,6 +65,7 @@ describe('Handler', function () {
   };
 
   beforeEach(function () {
+    nock.cleanAll();
     nock.disableNetConnect();
     clock = sinon.useFakeTimers(1435674000000);
     handlerConfig = {
@@ -74,8 +75,10 @@ describe('Handler', function () {
   });
 
   afterEach(function () {
-    nock.cleanAll();
     clock.restore();
+    if (!nock.isDone()) {
+      throw new Error('pending nock mocks: ' + nock.pendingMocks());
+    }
   });
 
   describe('main', function () {
@@ -370,6 +373,59 @@ describe('Handler', function () {
         ),
         message: 'uploading xyz',
         finalUrl: 'http://example.com/foo/xyz/2015/06/awesomeness-is-awesome/'
+      });
+    });
+
+    it('should support custom layout deriving', function () {
+      handlerConfig.layoutName = [
+        { value: 'foo', condition: 'abc = 123 AND foo = bar' },
+        { value: 'xyz', condition: 'content[] = "hello world"' }
+      ];
+
+      return basicTest({
+        content: (
+          '---\n' +
+          'layout: xyz\n' +
+          'date: \'2015-06-30T14:19:45.000Z\'\n' +
+          'title: awesomeness is awesome\n' +
+          'lang: en\n' +
+          'slug: awesomeness-is-awesome\n' +
+          '---\n' +
+          'hello world\n'
+        )
+      });
+    });
+
+    it('should support simple custom layout', function () {
+      handlerConfig.layoutName = 'simple';
+
+      return basicTest({
+        content: (
+          '---\n' +
+          'layout: simple\n' +
+          'date: \'2015-06-30T14:19:45.000Z\'\n' +
+          'title: awesomeness is awesome\n' +
+          'lang: en\n' +
+          'slug: awesomeness-is-awesome\n' +
+          '---\n' +
+          'hello world\n'
+        )
+      });
+    });
+
+    it('should support layout-less', function () {
+      handlerConfig.layoutName = false;
+
+      return basicTest({
+        content: (
+          '---\n' +
+          'date: \'2015-06-30T14:19:45.000Z\'\n' +
+          'title: awesomeness is awesome\n' +
+          'lang: en\n' +
+          'slug: awesomeness-is-awesome\n' +
+          '---\n' +
+          'hello world\n'
+        )
       });
     });
 

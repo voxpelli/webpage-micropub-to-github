@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.1 – YYYY-MM-DD
+
+* **Feature** – layout names are now configurable and can also be disabled. Fixes #29
+
 ## 0.6.0 – 2017-05-16
 
 * **Breaking** – the format for configuring content-dependent categories have changed, now a JSON array
