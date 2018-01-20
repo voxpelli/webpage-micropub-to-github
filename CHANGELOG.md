@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## 0.6.1 – YYYY-MM-DD
+## 0.6.1 – 2018-01-20
 
 * **Feature** – layout names are now configurable and can also be disabled. Fixes #29
 
