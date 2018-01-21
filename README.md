@@ -67,7 +67,7 @@ Variable | Description
 `MICROPUB_FILENAME_STYLE` | File name and path for post.  Example: `_posts/:year-:month-:day-:slug`
 `MICROPUB_MEDIA_FILES_STYLE` | File name and path for media files. Example: `media/:year-:month-:slug/:filesslug`
 `MICROPUB_PERMALINK_STYLE` | [Jekyll permalink style](http://jekyllrb.com/docs/permalinks/). Example: `/:categories/:year/:month/:title/`
-`MICROPUB_LAYOUT_NAME` | The name of the Jekyll layout to use for the posts. Defaults to `microblogpost`
+`MICROPUB_LAYOUT_NAME` | The name of the Jekyll layout to use for the posts. Set to `false` to have no layout be added. Defaults to `microblogpost`
 `MICROPUB_OPTION_DERIVE_CATEGORY` | Override the default category
 
 #### Complex output styles
