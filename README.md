@@ -1,7 +1,7 @@
 # Micropub to GitHub
 [![Build Status](https://travis-ci.org/voxpelli/webpage-micropub-to-github.svg?branch=master)](https://travis-ci.org/voxpelli/webpage-micropub-to-github)
 [![Coverage Status](https://coveralls.io/repos/github/voxpelli/webpage-micropub-to-github/badge.svg?branch=master)](https://coveralls.io/github/voxpelli/webpage-micropub-to-github?branch=master)
-[![Dependency Status](https://gemnasium.com/voxpelli/webpage-micropub-to-github.svg)](https://gemnasium.com/voxpelli/webpage-micropub-to-github)
+[![dependencies Status](https://david-dm.org/voxpelli/webpage-micropub-to-github/status.svg)](https://david-dm.org/voxpelli/webpage-micropub-to-github)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvoxpelli%2Fwebpage-micropub-to-github.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvoxpelli%2Fwebpage-micropub-to-github?ref=badge_shield)
 
 An endpoint that accepts [Micropub](http://micropub.net/) requests, formats them into [Jekyll](http://jekyllrb.com/) posts before pushing them to a configured GitHub repository. This enables updating a Jekyll blog through a [Micropub client](https://indieweb.org/Micropub/Clients).
