@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "bunyan-duckling": "^1.0.0",
-    "dotenv": "^4.0.0",
+    "dotenv": "^6.0.0",
     "express": "^4.13.0",
     "format-microformat": "^0.10.2",
     "fulfills": "^1.0.0",
