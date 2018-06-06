@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "node .",
-    "mocha": "NODE_ENV=test DOTENV_FILE=test/test.env istanbul cover _mocha -- -u exports -R spec test/**/*.spec.js",
+    "mocha": "NODE_ENV=test DOTENV_FILE=test/test.env nyc --reporter=lcov --reporter text mocha test/**/*.spec.js",
     "dependency-check": "JS_FILES=\"lib/*.js test/*.js\" && dependency-check . $JS_FILES && dependency-check . $JS_FILES --unused --no-dev",
     "test": "installed-check -e && eslint . && npm run --silent dependency-check && npm run --silent mocha",
     "prepush": "npm test"
@@ -38,9 +38,9 @@
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
     "installed-check": "^2.0.0",
-    "istanbul": "^0.4.5",
     "mocha": "^5.0.0",
     "nock": "^9.0.0",
+    "nyc": "^12.0.2",
     "sinon": "^4.1.6"
   },
   "dependencies": {

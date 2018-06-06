@@ -1,6 +1,10 @@
+# Basic ones
+/coverage
+/docs
 /node_modules
 /.env
+/.nyc_output
 
-# Should ignore code coverage reports
-
-/coverage
+# We're a library, so please, no lock files
+/package-lock.json
+/yarn.lock
