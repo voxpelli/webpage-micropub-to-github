@@ -2,20 +2,7 @@
   "extends": [
     "config:js-app",
     "group:linters",
+    "@voxpelli:unitGroup",
     ":maintainLockFilesMonthly"
-  ],
-  "packageRules": [
-    {
-      "packagePatterns": [
-        "*"
-      ],
-      "rangeStrategy": "replace"
-    },
-    {
-      "depTypeList": [
-        "peerDependencies"
-      ],
-      "rangeStrategy": "widen"
-    }
   ]
 }
