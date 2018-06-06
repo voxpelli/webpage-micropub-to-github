@@ -1,6 +1,5 @@
 {
   "extends": [
-    "config:js-app",
-    "config:semverAllMonthly"
+    "config:js-app"
   ]
 }
