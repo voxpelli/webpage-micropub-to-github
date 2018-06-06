@@ -1,6 +1,7 @@
 {
   "extends": [
     "config:js-app",
+    ":preserveSemverRanges",
     ":maintainLockFilesMonthly"
   ]
 }
