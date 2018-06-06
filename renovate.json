@@ -1,5 +1,6 @@
 {
   "extends": [
-    "config:js-app"
+    "config:js-app",
+    ":maintainLockFilesMonthly"
   ]
 }
