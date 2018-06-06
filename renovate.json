@@ -4,5 +4,18 @@
     "group:linters",
     ":maintainLockFilesMonthly"
   ],
-  "rangeStrategy": "replace"
+  "packageRules": [
+    {
+      "packagePatterns": [
+        "*"
+      ],
+      "rangeStrategy": "replace"
+    },
+    {
+      "depTypeList": [
+        "peerDependencies"
+      ],
+      "rangeStrategy": "widen"
+    }
+  ]
 }
