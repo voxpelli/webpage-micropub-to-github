@@ -9,7 +9,7 @@
       "packagePatterns": [
         "*"
       ],
-      "rangeStrategy": "bump"
+      "rangeStrategy": "replace"
     },
     {
       "depTypeList": [
