@@ -2,7 +2,20 @@
   "extends": [
     "config:js-app",
     "group:linters",
-    ":maintainLockFilesMonthly",
-    ":preserveSemverRanges"
+    ":maintainLockFilesMonthly"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": [
+        "*"
+      ],
+      "rangeStrategy": "bump"
+    },
+    {
+      "depTypeList": [
+        "peerDependencies"
+      ],
+      "rangeStrategy": "widen"
+    }
   ]
 }
