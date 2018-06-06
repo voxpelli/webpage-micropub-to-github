@@ -1,8 +1,8 @@
 {
   "extends": [
     "config:js-app",
-    "group:linters",
     "@voxpelli",
+    "group:linters",
     ":maintainLockFilesMonthly"
   ]
 }
