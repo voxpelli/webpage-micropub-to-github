@@ -76,6 +76,7 @@ describe('Handler', function () {
 
   afterEach(function () {
     clock.restore();
+    sinon.restore();
     if (!nock.isDone()) {
       throw new Error('pending nock mocks: ' + nock.pendingMocks());
     }
