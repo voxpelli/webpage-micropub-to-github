@@ -744,9 +744,9 @@ depd@~1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
 
-dependency-check@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/dependency-check/-/dependency-check-3.0.0.tgz#92e2a4141812d4e99cb91298c36a7435b848b1c6"
+dependency-check@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/dependency-check/-/dependency-check-3.1.0.tgz#83d95d27982a31ae38eeb6b50cdd3fc4e374db3c"
   dependencies:
     builtins "^2.0.0"
     debug "^3.1.0"
