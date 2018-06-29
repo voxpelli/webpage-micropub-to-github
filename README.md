@@ -84,6 +84,7 @@ Variable | Description
 `MICROPUB_OPTION_NO_AUTO_CONFIGURE` | Auto-configure permalink status from the Jekyll repo config. Boolean
 `MICROPUB_OPTION_DERIVE_LANGUAGES` | Comma separated list of language codes to auto-detect. Example `eng,swe`
 `MICROPUB_HOST` | Domain name to enforce. Will redirect requests to all other domain names and IP addresses that the endpoint can be accessed on.
+`MICROPUB_ENCODE_HTML` | Option to opt out of HTML-encoding of text content if set to `false`. Defaults to `true`.
 
 ### Conditional values
 
