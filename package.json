@@ -39,9 +39,9 @@
     "husky": "0.14.3",
     "installed-check": "2.2.0",
     "mocha": "5.2.0",
-    "nock": "9.4.0",
+    "nock": "9.4.4",
     "nyc": "12.0.2",
-    "sinon": "6.0.1"
+    "sinon": "6.1.4"
   },
   "dependencies": {
     "bunyan-duckling": "^1.0.0",
