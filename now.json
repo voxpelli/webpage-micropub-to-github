@@ -1,0 +1,11 @@
+{
+  "env": {
+    "MICROPUB_TOKEN_ENDPOINT": "https://tokens.indieauth.com/token",
+    "MICROPUB_TOKEN_ME": "https://www.sendung.de/",
+    "MICROPUB_GITHUB_TOKEN": "@micropub-github-token",
+    "MICROPUB_GITHUB_USER": "marians",
+    "MICROPUB_SITE_GITHUB_REPO": "www.sendung.de",
+    "MICROPUB_SITE_URL": "https://www.sendung.de/",
+    "MICROPUB_FILENAME_STYLE": "_posts/:year-:month-:day-:slug"
+  }
+}
