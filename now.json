@@ -1,7 +1,7 @@
 {
   "name": "webpage-micropub-to-github",
   "type": "docker",
-  "alias": "micropub",
+  "alias": "sendung-micropub.now.sh",
   "public": true,
   "scale": {
     "bru1": {
