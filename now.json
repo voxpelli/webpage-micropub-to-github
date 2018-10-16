@@ -16,6 +16,8 @@
     "MICROPUB_GITHUB_USER": "marians",
     "MICROPUB_SITE_GITHUB_REPO": "www.sendung.de",
     "MICROPUB_SITE_URL": "https://www.sendung.de/",
-    "MICROPUB_FILENAME_STYLE": "_posts/:year-:month-:day-:slug"
+    "MICROPUB_FILENAME_STYLE": "\"_posts/:year-:month-:day-:slug\"",
+    "MICROPUB_PERMALINK_STYLE": "\":year-:month-:day-:slug\"",
+    "MICROPUB_MEDIA_FILES_STYLE": "\"media/:year-:month-:slug/:filesslug\""
   }
 }
