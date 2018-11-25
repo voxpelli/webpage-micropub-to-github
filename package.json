@@ -25,10 +25,10 @@
     "node": ">=6.0.0"
   },
   "devDependencies": {
-    "chai": "4.1.2",
+    "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
     "coveralls": "3.0.2",
-    "dependency-check": "3.2.0",
+    "dependency-check": "3.2.1",
     "eslint": "4.19.1",
     "eslint-config-semistandard": "12.0.1",
     "eslint-config-standard": "11.0.0",
@@ -39,9 +39,9 @@
     "husky": "0.14.3",
     "installed-check": "2.2.0",
     "mocha": "5.2.0",
-    "nock": "9.6.1",
-    "nyc": "13.0.1",
-    "sinon": "6.2.0"
+    "nock": "10.0.2",
+    "nyc": "13.1.0",
+    "sinon": "6.3.5"
   },
   "dependencies": {
     "bunyan-duckling": "^1.0.0",
