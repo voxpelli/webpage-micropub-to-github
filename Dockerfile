@@ -2,9 +2,8 @@ FROM node:10-alpine
 
 WORKDIR /app
 COPY . /app/
-RUN yarn install
+RUN npm install
 
 EXPOSE 8080
 
-ENTRYPOINT ["node"]
-CMD ["."]
+CMD ["npm", "start"]

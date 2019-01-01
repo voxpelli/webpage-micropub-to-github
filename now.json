@@ -1,23 +1,17 @@
 {
-  "name": "webpage-micropub-to-github",
-  "type": "docker",
-  "alias": "sendung-micropub.now.sh",
-  "public": true,
-  "scale": {
-    "bru1": {
-      "min": 0,
-      "max": 1
-    }
-  },
-  "env": {
-    "MICROPUB_TOKEN_ENDPOINT": "https://tokens.indieauth.com/token",
-    "MICROPUB_TOKEN_ME": "https://www.sendung.de/",
-    "MICROPUB_GITHUB_TOKEN": "@micropub-github-token",
-    "MICROPUB_GITHUB_USER": "marians",
-    "MICROPUB_SITE_GITHUB_REPO": "www.sendung.de",
-    "MICROPUB_SITE_URL": "https://www.sendung.de/",
-    "MICROPUB_FILENAME_STYLE": "\"_posts/:year-:month-:day-:slug\"",
-    "MICROPUB_PERMALINK_STYLE": "\":year-:month-:day-:slug\"",
-    "MICROPUB_MEDIA_FILES_STYLE": "\"media/:year-:month-:slug/:filesslug\""
+    "name": "webpage-micropub-to-github",
+    "alias": "xamdk-micropub.now.sh",
+    "public": true,
+    "version": 1,
+    "type": "docker",
+    "env": {
+        "MICROPUB_TOKEN_ENDPOINT": "https://tokens.indieauth.com/token",
+        "MICROPUB_TOKEN_ME": "https://xam.dk",
+        "MICROPUB_GITHUB_TOKEN": "@micropub-github-token",
+        "MICROPUB_GITHUB_USER": "maxandersen",
+        "MICROPUB_SITE_GITHUB_REPO": "xam.dk",
+        "MICROPUB_SITE_URL": "https://xam.dk",
+        "MICROPUB_MEDIA_FILES_STYLE": "\"media/:year-:month-:slug/:filesslug\"",
+        "MICROPUB_LAYOUT_NAME": "false"
   }
 }

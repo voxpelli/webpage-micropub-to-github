@@ -1,0 +1,9 @@
+version: "3.1"
+
+services:
+  micropub:
+    image: maxandersen/webpage-micropub-to-github
+    ports:
+      - 8080:8080
+    env_file:
+      - ./config.env
