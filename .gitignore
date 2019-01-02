@@ -5,6 +5,5 @@
 /.env
 /.nyc_output
 
-# We're a library, so please, no lock files
+# When using yarn, skip the package-lock.json
 /package-lock.json
-/yarn.lock
