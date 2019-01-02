@@ -72,6 +72,7 @@ Variable | Description
 `MICROPUB_PERMALINK_STYLE` | [Jekyll permalink style](http://jekyllrb.com/docs/permalinks/). Example: `/:categories/:year/:month/:title/`
 `MICROPUB_LAYOUT_NAME` | The name of the Jekyll layout to use for the posts. Set to `false` to have no layout be added. Defaults to `microblogpost`
 `MICROPUB_OPTION_DERIVE_CATEGORY` | Override the default category
+`MICROPUB_GITHUB_BRANCH` | Branch to use for pushes. Useful to test out if things end up where you want them to. Example: `micropub`
 
 #### Complex output styles
 
