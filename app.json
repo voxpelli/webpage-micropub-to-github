@@ -17,6 +17,10 @@
       "description": "The GitHub user to which the configured repositories belongs.",
       "required": true
     },
+    "MICROPUB_GITHUB_BRANCH": {
+      "description": "Branch to use when pushing. Leave empty/blank to use default.",
+      "required": false
+    },
 
     "MICROPUB_SITE_GITHUB_REPO": {
       "description": "The name of your GitHub repository.",
