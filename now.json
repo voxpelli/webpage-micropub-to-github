@@ -9,6 +9,7 @@
         "MICROPUB_TOKEN_ME": "https://xam.dk",
         "MICROPUB_GITHUB_TOKEN": "@micropub-github-token",
         "MICROPUB_GITHUB_USER": "maxandersen",
+        "MICROPUB_GITHUB_BRANCH": "micropub",
         "MICROPUB_SITE_GITHUB_REPO": "xam.dk",
         "MICROPUB_SITE_URL": "https://xam.dk",
         "MICROPUB_MEDIA_FILES_STYLE": "\"media/:year-:month-:slug/:filesslug\"",
