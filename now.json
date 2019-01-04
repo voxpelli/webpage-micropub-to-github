@@ -1,18 +1,15 @@
 {
     "name": "webpage-micropub-to-github",
-    "alias": "xamdk-micropub.now.sh",
+    "alias": "johndoe-micropub.now.sh",
     "public": true,
     "version": 1,
     "type": "docker",
     "env": {
         "MICROPUB_TOKEN_ENDPOINT": "https://tokens.indieauth.com/token",
-        "MICROPUB_TOKEN_ME": "https://xam.dk",
+        "MICROPUB_TOKEN_ME": "https://johndoe.example",
         "MICROPUB_GITHUB_TOKEN": "@micropub-github-token",
-        "MICROPUB_GITHUB_USER": "maxandersen",
-        "MICROPUB_GITHUB_BRANCH": "micropub",
-        "MICROPUB_SITE_GITHUB_REPO": "xam.dk",
-        "MICROPUB_SITE_URL": "https://xam.dk",
-        "MICROPUB_MEDIA_FILES_STYLE": "\"media/:year-:month-:slug/:filesslug\"",
-        "MICROPUB_LAYOUT_NAME": "false"
+        "MICROPUB_GITHUB_USER": "johndoe",
+        "MICROPUB_SITE_GITHUB_REPO": "johndoe.github.io",
+        "MICROPUB_SITE_URL": "https://johndoe.example"
   }
 }
