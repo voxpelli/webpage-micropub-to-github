@@ -73,6 +73,7 @@ Variable | Description
 `MICROPUB_LAYOUT_NAME` | The name of the Jekyll layout to use for the posts. Set to `false` to have no layout be added. Defaults to `microblogpost`
 `MICROPUB_OPTION_DERIVE_CATEGORY` | Override the default category
 `MICROPUB_GITHUB_BRANCH` | Branch to use for pushes. Useful to test out if things end up where you want them to. Example: `micropub`
+`MICROPUB_CONTENT_SLUG` | Use the content of the post as the slug (first five words). Default is `true`.
 
 #### Complex output styles
 
