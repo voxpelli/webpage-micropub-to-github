@@ -2,7 +2,7 @@ FROM node:10-alpine
 
 WORKDIR /app
 COPY . /app/
-RUN npm install
+RUN yarn install --production
 
 EXPOSE 8080
 
