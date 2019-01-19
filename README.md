@@ -19,7 +19,7 @@ Unsupported:
 * Deletes
 
 ## Requirements
-Requires at least Node.js 6.0.0.
+Requires at least Node.js 8.0.0.
 
 This project contains a [https://yarnpkg.com/](Yarn) lock file which is a faster and more secure alternative to the npm client.
 
