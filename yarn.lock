@@ -1494,10 +1494,10 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-format-microformat@^0.10.2:
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/format-microformat/-/format-microformat-0.10.2.tgz#9d0105ca20e89444cf69c30856412597461d1a1d"
-  integrity sha1-nQEFyiDolETPacMIVkEll0YdGh0=
+format-microformat@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/format-microformat/-/format-microformat-0.11.0.tgz#194d27e33784ec122b542859cf711f4917443e53"
+  integrity sha512-mYmX8Uij/HN33VP/plAZSZXCyjkGWhobnq3stIh/K3x76d0WZ8NGFo0ZqQpxwR3hJbzoOaEj2YbBDswrShcySg==
   dependencies:
     ent "^2.2.0"
     escape-html "^1.0.3"
