@@ -18,7 +18,7 @@
     "start": "node .",
     "mocha": "NODE_ENV=test DOTENV_FILE=test/test.env nyc --reporter=lcov --reporter text mocha test/**/*.spec.js",
     "dependency-check": "JS_FILES=\"lib/*.js test/*.js\" && dependency-check . $JS_FILES && dependency-check . $JS_FILES --unused --no-dev",
-    "test": "installed-check -e && eslint . && npm run --silent dependency-check && npm run --silent mocha"
+    "test": "installed-check -e -i eslint && eslint . && npm run --silent dependency-check && npm run --silent mocha"
   },
   "husky": {
     "hooks": {
@@ -45,7 +45,7 @@
     "mocha": "5.2.0",
     "nock": "10.0.6",
     "nyc": "13.1.0",
-    "sinon": "7.2.2"
+    "sinon": "7.2.3"
   },
   "dependencies": {
     "bunyan-duckling": "^1.0.0",
@@ -54,7 +54,7 @@
     "format-microformat": "^0.11.0",
     "fulfills": "^1.0.0",
     "github-publish": "^3.0.0",
-    "js-yaml": "^3.6.1",
+    "js-yaml": "^3.12.1",
     "micropub-express": "^0.7.1"
   }
 }

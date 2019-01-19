@@ -138,7 +138,7 @@ describe('Handler', function () {
             'lang': ['en']
           },
           files: {
-            photo: [{filename: 'foo.jpg', buffer: fileContent}]
+            photo: [{ filename: 'foo.jpg', buffer: fileContent }]
           }
         },
         'http://example.com/foo/',
@@ -177,7 +177,7 @@ describe('Handler', function () {
         .reply(422, {})
 
         .get(path)
-        .reply(200, {sha: sha})
+        .reply(200, { sha: sha })
 
         .put(path, {
           message: 'uploading article',
