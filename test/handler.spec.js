@@ -8,7 +8,7 @@ const sinon = require('sinon');
 chai.use(chaiAsPromised);
 chai.should();
 
-describe('Handler', function () {
+describe('Handler', () => {
   const handler = require('../lib/handler.js');
   let handlerConfig;
   let clock;
@@ -34,7 +34,7 @@ describe('Handler', function () {
     )).toString('base64');
 
     const mock = nock('https://api.github.com/')
-      .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
+      .matchHeader('authorization', val => val && val[0] === 'Bearer ' + token)
       .put(path, {
         message: message || 'uploading article',
         content: encodedContent
@@ -43,9 +43,9 @@ describe('Handler', function () {
 
     return handler(
       {
-        token: token,
-        user: user,
-        repo: repo
+        token,
+        user,
+        repo
       },
       {
         'type': ['h-entry'],
@@ -58,13 +58,13 @@ describe('Handler', function () {
       'http://example.com/foo/',
       handlerConfig
     )
-      .then(function (url) {
+      .then(url => {
         mock.done();
         url.should.equal(finalUrl || 'http://example.com/foo/2015/06/awesomeness-is-awesome/');
       });
   };
 
-  beforeEach(function () {
+  beforeEach(() => {
     nock.cleanAll();
     nock.disableNetConnect();
     clock = sinon.useFakeTimers(1435674000000);
@@ -76,7 +76,7 @@ describe('Handler', function () {
     };
   });
 
-  afterEach(function () {
+  afterEach(() => {
     clock.restore();
     sinon.restore();
     if (!nock.isDone()) {
@@ -84,12 +84,12 @@ describe('Handler', function () {
     }
   });
 
-  describe('main', function () {
-    it('should format and send content', function () {
+  describe('main', () => {
+    it('should format and send content', () => {
       return basicTest();
     });
 
-    it('should upload files prior to content', function () {
+    it('should upload files prior to content', () => {
       const token = 'abc123';
       const user = 'username';
       const repo = 'repo';
@@ -112,7 +112,7 @@ describe('Handler', function () {
       );
 
       const mock = nock('https://api.github.com/')
-        .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
+        .matchHeader('authorization', val => val && val[0] === 'Bearer ' + token)
         // Upload of the media
         .put(repoPath + 'media/2015-06-awesomeness-is-awesome/' + mediaFilename, {
           // TODO: Change this commit message to at least be "new media" instead
@@ -129,9 +129,9 @@ describe('Handler', function () {
 
       return handler(
         {
-          token: token,
-          user: user,
-          repo: repo
+          token,
+          user,
+          repo
         }, {
           'type': ['h-entry'],
           'properties': {
@@ -146,13 +146,13 @@ describe('Handler', function () {
         'http://example.com/foo/',
         handlerConfig
       )
-        .then(function (url) {
+        .then(url => {
           mock.done();
           url.should.equal('http://example.com/foo/2015/06/awesomeness-is-awesome/');
         });
     });
 
-    it('should override existing content if matching URL', function () {
+    it('should override existing content if matching URL', () => {
       const token = 'abc123';
       const user = 'username';
       const repo = 'repo';
@@ -179,20 +179,20 @@ describe('Handler', function () {
         .reply(422, {})
 
         .get(path)
-        .reply(200, { sha: sha })
+        .reply(200, { sha })
 
         .put(path, {
           message: 'uploading article',
           content: base64,
-          sha: sha
+          sha
         })
         .reply(201, { content: { sha: 'xyz789' } });
 
       return handler(
         {
-          token: token,
-          user: user,
-          repo: repo
+          token,
+          user,
+          repo
         }, {
           'type': ['h-entry'],
           'url': 'http://example.com/foo/2015/06/awesomeness-is-awesome/',
@@ -205,13 +205,13 @@ describe('Handler', function () {
         'http://example.com/foo/',
         handlerConfig
       )
-        .then(function (url) {
+        .then(url => {
           mock.done();
           url.should.equal('http://example.com/foo/2015/06/awesomeness-is-awesome/');
         });
     });
 
-    it('should not override existing content if no matching URL', function () {
+    it('should not override existing content if no matching URL', () => {
       const token = 'abc123';
       const user = 'username';
       const repo = 'repo';
@@ -238,9 +238,9 @@ describe('Handler', function () {
 
       return handler(
         {
-          token: token,
-          user: user,
-          repo: repo
+          token,
+          user,
+          repo
         }, {
           'type': ['h-entry'],
           'properties': {
@@ -252,13 +252,13 @@ describe('Handler', function () {
         'http://example.com/foo/',
         handlerConfig
       )
-        .then(function (url) {
+        .then(url => {
           mock.done();
           url.should.equal(false);
         });
     });
 
-    it('should set a custom commit message when formatter returns a category', function () {
+    it('should set a custom commit message when formatter returns a category', () => {
       const token = 'abc123';
       const user = 'username';
       const repo = 'repo';
@@ -278,7 +278,7 @@ describe('Handler', function () {
       const base64 = encodedContent.toString('base64');
 
       const mock = nock('https://api.github.com/')
-        .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
+        .matchHeader('authorization', val => val && val[0] === 'Bearer ' + token)
         .put(path, {
           message: 'uploading social interaction',
           content: base64
@@ -287,9 +287,9 @@ describe('Handler', function () {
 
       return handler(
         {
-          token: token,
-          user: user,
-          repo: repo
+          token,
+          user,
+          repo
         }, {
           'type': ['h-entry'],
           'properties': {
@@ -300,13 +300,13 @@ describe('Handler', function () {
         'http://example.com/foo/',
         handlerConfig
       )
-        .then(function (url) {
+        .then(url => {
           mock.done();
           url.should.equal('http://example.com/foo/social/2015/06/51585/');
         });
     });
 
-    it('should format HTML to Markdown and send content', function () {
+    it('should format HTML to Markdown and send content', () => {
       const token = 'abc123';
       const user = 'username';
       const repo = 'repo';
@@ -324,7 +324,7 @@ describe('Handler', function () {
       );
 
       const mock = nock('https://api.github.com/')
-        .matchHeader('authorization', function (val) { return val && val[0] === 'Bearer ' + token; })
+        .matchHeader('authorization', val => val && val[0] === 'Bearer ' + token)
         .put(path, {
           message: 'uploading article',
           content: encodedContent.toString('base64')
@@ -333,9 +333,9 @@ describe('Handler', function () {
 
       return handler(
         {
-          token: token,
-          user: user,
-          repo: repo
+          token,
+          user,
+          repo
         }, {
           'type': ['h-entry'],
           'properties': {
@@ -350,13 +350,13 @@ describe('Handler', function () {
         'http://example.com/foo/',
         handlerConfig
       )
-        .then(function (url) {
+        .then(url => {
           mock.done();
           url.should.equal('http://example.com/foo/2015/06/awesomeness-is-awesome/');
         });
     });
 
-    it('should support category deriving', function () {
+    it('should support category deriving', () => {
       handlerConfig.deriveCategory = [
         { value: 'foo', condition: 'abc = 123 AND foo = bar' },
         { value: 'xyz', condition: 'content[] = "hello world"' }
@@ -379,7 +379,7 @@ describe('Handler', function () {
       });
     });
 
-    it('should support custom layout deriving', function () {
+    it('should support custom layout deriving', () => {
       handlerConfig.layoutName = [
         { value: 'foo', condition: 'abc = 123 AND foo = bar' },
         { value: 'xyz', condition: 'content[] = "hello world"' }
@@ -399,7 +399,7 @@ describe('Handler', function () {
       });
     });
 
-    it('should support simple custom layout', function () {
+    it('should support simple custom layout', () => {
       handlerConfig.layoutName = 'simple';
 
       return basicTest({
@@ -416,7 +416,7 @@ describe('Handler', function () {
       });
     });
 
-    it('should support layout-less', function () {
+    it('should support layout-less', () => {
       handlerConfig.layoutName = false;
 
       return basicTest({
@@ -432,7 +432,7 @@ describe('Handler', function () {
       });
     });
 
-    it('should support callback based permalink style', function () {
+    it('should support callback based permalink style', () => {
       handlerConfig.permalinkStyle = [
         { value: 'first/:slug', condition: 'content[] = "hello world"' },
         { value: 'second/:slug', condition: 'abc = 123 AND foo = bar' }
@@ -453,7 +453,7 @@ describe('Handler', function () {
       });
     });
 
-    it('should support callback based filename style', function () {
+    it('should support callback based filename style', () => {
       handlerConfig.filenameStyle = [
         { value: 'first/:slug', condition: 'abc = 123 AND foo = bar' },
         { value: 'second/:slug', condition: 'content[] = "hello world"' }
