@@ -13,7 +13,7 @@ describe('Handler', function () {
   let handlerConfig;
   let clock;
 
-  const basicTest = function ({ content, message, finalUrl, filename }) {
+  const basicTest = function ({ content, message, finalUrl, filename, contentInput } = {}) {
     const token = 'abc123';
     const user = 'username';
     const repo = 'repo';
@@ -50,7 +50,7 @@ describe('Handler', function () {
       {
         'type': ['h-entry'],
         'properties': {
-          'content': ['hello world'],
+          'content': [contentInput || 'hello world'],
           'name': ['awesomeness is awesome'],
           'lang': ['en']
         }
@@ -69,6 +69,8 @@ describe('Handler', function () {
     nock.disableNetConnect();
     clock = sinon.useFakeTimers(1435674000000);
     handlerConfig = {
+      // Enable to help with debugging of wrongly formatted content
+      // verbose: true,
       noAutoConfigure: true,
       permalinkStyle: '/:categories/:year/:month/:title/'
     };
@@ -84,7 +86,7 @@ describe('Handler', function () {
 
   describe('main', function () {
     it('should format and send content', function () {
-      return basicTest({});
+      return basicTest();
     });
 
     it('should upload files prior to content', function () {
@@ -472,10 +474,9 @@ describe('Handler', function () {
       });
     });
 
-    it('should support encode-HTML opt out', function () {
-      handlerConfig.encodeHTML = false;
-
+    it('should correctly HTML-encode text input', () => {
       return basicTest({
+        contentInput: 'world < hello',
         content: (
           '---\n' +
           'layout: micropubpost\n' +
@@ -484,7 +485,25 @@ describe('Handler', function () {
           'lang: en\n' +
           'slug: awesomeness-is-awesome\n' +
           '---\n' +
-          'hello world\n'
+          'world &lt; hello\n'
+        )
+      });
+    });
+
+    it('should support HTML-encode opt out', () => {
+      handlerConfig.encodeHTML = false;
+
+      return basicTest({
+        contentInput: 'world < hello',
+        content: (
+          '---\n' +
+          'layout: micropubpost\n' +
+          'date: \'2015-06-30T14:19:45.000Z\'\n' +
+          'title: awesomeness is awesome\n' +
+          'lang: en\n' +
+          'slug: awesomeness-is-awesome\n' +
+          '---\n' +
+          'world < hello\n'
         )
       });
     });
