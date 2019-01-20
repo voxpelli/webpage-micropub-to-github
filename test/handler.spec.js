@@ -471,5 +471,22 @@ describe('Handler', function () {
         filename: 'second/awesomeness-is-awesome.md'
       });
     });
+
+    it('should support encode-HTML opt out', function () {
+      handlerConfig.encodeHTML = false;
+
+      return basicTest({
+        content: (
+          '---\n' +
+          'layout: micropubpost\n' +
+          'date: \'2015-06-30T14:19:45.000Z\'\n' +
+          'title: awesomeness is awesome\n' +
+          'lang: en\n' +
+          'slug: awesomeness-is-awesome\n' +
+          '---\n' +
+          'hello world\n'
+        )
+      });
+    });
   });
 });
