@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "bunyan-duckling": "^1.0.0",
-    "dotenv": "^6.0.0",
+    "dotenv": "^7.0.0",
     "express": "^4.13.0",
     "format-microformat": "^0.11.1",
     "fulfills": "^1.0.0",
