@@ -1631,10 +1631,10 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
 
-fulfills@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/fulfills/-/fulfills-1.0.1.tgz#e02e18e169e46e96cf5fd9d4dd92a597f2857dcf"
-  integrity sha1-4C4Y4WnkbpbPX9nU3ZKll/KFfc8=
+fulfills@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/fulfills/-/fulfills-2.0.0.tgz#c93f54b08e0fe579516e752f10a37e7c3baa4079"
+  integrity sha512-kDpwoVSu4InvgkMN1JMoCz9I7PPihvwMP5BH1LGd7mT/qWIw63xP4y4npqHcEvd3eY7FD+vi/0fI41TgQTKc/g==
 
 function-bind@^1.1.1:
   version "1.1.1"
