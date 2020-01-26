@@ -48,11 +48,11 @@ describe('Handler', () => {
         repo
       },
       {
-        'type': ['h-entry'],
-        'properties': {
-          'content': [contentInput || 'hello world'],
-          'name': ['awesomeness is awesome'],
-          'lang': ['en']
+        type: ['h-entry'],
+        properties: {
+          content: [contentInput || 'hello world'],
+          name: ['awesomeness is awesome'],
+          lang: ['en']
         }
       },
       'http://example.com/foo/',
@@ -133,11 +133,11 @@ describe('Handler', () => {
           user,
           repo
         }, {
-          'type': ['h-entry'],
-          'properties': {
-            'content': ['hello world'],
-            'name': ['awesomeness is awesome'],
-            'lang': ['en']
+          type: ['h-entry'],
+          properties: {
+            content: ['hello world'],
+            name: ['awesomeness is awesome'],
+            lang: ['en']
           },
           files: {
             photo: [{ filename: 'foo.jpg', buffer: fileContent }]
@@ -194,12 +194,12 @@ describe('Handler', () => {
           user,
           repo
         }, {
-          'type': ['h-entry'],
-          'url': 'http://example.com/foo/2015/06/awesomeness-is-awesome/',
-          'properties': {
-            'content': ['hello world'],
-            'name': ['awesomeness is awesome'],
-            'lang': ['en']
+          type: ['h-entry'],
+          url: 'http://example.com/foo/2015/06/awesomeness-is-awesome/',
+          properties: {
+            content: ['hello world'],
+            name: ['awesomeness is awesome'],
+            lang: ['en']
           }
         },
         'http://example.com/foo/',
@@ -242,11 +242,11 @@ describe('Handler', () => {
           user,
           repo
         }, {
-          'type': ['h-entry'],
-          'properties': {
-            'content': ['hello world'],
-            'name': ['awesomeness is awesome'],
-            'lang': ['en']
+          type: ['h-entry'],
+          properties: {
+            content: ['hello world'],
+            name: ['awesomeness is awesome'],
+            lang: ['en']
           }
         },
         'http://example.com/foo/',
@@ -291,10 +291,10 @@ describe('Handler', () => {
           user,
           repo
         }, {
-          'type': ['h-entry'],
-          'properties': {
-            'content': ['hello world'],
-            'lang': ['en']
+          type: ['h-entry'],
+          properties: {
+            content: ['hello world'],
+            lang: ['en']
           }
         },
         'http://example.com/foo/',
@@ -337,14 +337,14 @@ describe('Handler', () => {
           user,
           repo
         }, {
-          'type': ['h-entry'],
-          'properties': {
-            'content': [{
-              'html': '<strong>hello world</strong>',
-              'value': 'hello world'
+          type: ['h-entry'],
+          properties: {
+            content: [{
+              html: '<strong>hello world</strong>',
+              value: 'hello world'
             }],
-            'name': ['awesomeness is awesome'],
-            'lang': ['en']
+            name: ['awesomeness is awesome'],
+            lang: ['en']
           }
         },
         'http://example.com/foo/',
