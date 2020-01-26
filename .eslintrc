@@ -1,7 +1,4 @@
 {
-  "extends": "semistandard",
-  "root": true,
-  "rules": {
-    "no-var": 2
-  }
+  "extends": "@voxpelli",
+  "root": true
 }
