@@ -1,5 +1,5 @@
 # Micropub to GitHub
-[![Build Status](https://travis-ci.org/voxpelli/webpage-micropub-to-github.svg?branch=master)](https://travis-ci.org/voxpelli/webpage-micropub-to-github)
+
 [![Coverage Status](https://coveralls.io/repos/github/voxpelli/webpage-micropub-to-github/badge.svg?branch=master)](https://coveralls.io/github/voxpelli/webpage-micropub-to-github?branch=master)
 [![dependencies Status](https://david-dm.org/voxpelli/webpage-micropub-to-github/status.svg)](https://david-dm.org/voxpelli/webpage-micropub-to-github)
 [![Known Vulnerabilities](https://snyk.io/test/github/voxpelli/webpage-micropub-to-github/badge.svg?targetFile=package.json)](https://snyk.io/test/github/voxpelli/webpage-micropub-to-github?targetFile=package.json)
