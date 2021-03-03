@@ -16,7 +16,7 @@
   },
   "scripts": {
     "check:dependency-check": "dependency-check 'lib/**/*.js' 'test/**/*.js' --no-dev",
-    "check:installed-check": "installed-check -i eslint -i installed-check",
+    "check:installed-check": "installed-check",
     "check:lint": "eslint .",
     "check": "run-p check:*",
     "start": "node .",
@@ -31,7 +31,7 @@
     }
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=14.0.0"
   },
   "devDependencies": {
     "@voxpelli/eslint-config": "^4.0.0",

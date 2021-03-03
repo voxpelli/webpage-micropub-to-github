@@ -2,7 +2,7 @@ env: {}
 
 # FILE GENERATED WITH: npx ghat voxpelli/ghatemplates/nodejs-coveralls
 # SOURCE: https://github.com/voxpelli/ghatemplates
-# OPTIONS: {"set":["jobs.test.strategy.matrix.node_version=[10,12,14,15]","jobs.test.strategy.matrix.os=[ubuntu-latest]"]}
+# OPTIONS: {"set":["jobs.test.strategy.matrix.node_version=[14,15]","jobs.test.strategy.matrix.os=[ubuntu-latest]"]}
 
 name: Node CI
 on:
@@ -16,8 +16,6 @@ jobs:
       fail-fast: false
       matrix:
         node_version:
-          - 10
-          - 12
           - 14
           - 15
         os:

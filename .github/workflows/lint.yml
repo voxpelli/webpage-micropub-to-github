@@ -2,7 +2,7 @@ env: {}
 
 # FILE GENERATED WITH: npx ghat voxpelli/ghatemplates/lint
 # SOURCE: https://github.com/voxpelli/ghatemplates
-# OPTIONS: {"set":["jobs.test.strategy.matrix.node_version=[12]"]}
+# OPTIONS: {"set":["jobs.test.strategy.matrix.node_version=[14]"]}
 
 name: Linting
 on:
@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         node_version:
-          - 12
+          - 14
         os:
           - ubuntu-latest
     steps:
