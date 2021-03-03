@@ -1,0 +1,15 @@
+{
+    "name": "webpage-micropub-to-github",
+    "alias": "johndoe-micropub.now.sh",
+    "public": true,
+    "version": 1,
+    "type": "docker",
+    "env": {
+        "MICROPUB_TOKEN_ENDPOINT": "https://tokens.indieauth.com/token",
+        "MICROPUB_TOKEN_ME": "https://johndoe.example",
+        "MICROPUB_GITHUB_TOKEN": "@micropub-github-token",
+        "MICROPUB_GITHUB_USER": "johndoe",
+        "MICROPUB_SITE_GITHUB_REPO": "johndoe.github.io",
+        "MICROPUB_SITE_URL": "https://johndoe.example"
+  }
+}
