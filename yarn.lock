@@ -561,6 +561,11 @@ bunyan-adaptor@^4.0.0:
   resolved "https://registry.yarnpkg.com/bunyan-adaptor/-/bunyan-adaptor-4.0.0.tgz#63724b33ce8bf86ec93f8965fbcf7676f30310bc"
   integrity sha512-JbOJx7Pqr8wmH7cDU1GXe4BKV7hKoOH0DwlCwpYrSEvhwsGMG5co2BfV5BJ/RCJzFD9IlldbZdiAVt3VZ+b9ow==
 
+bunyan-adaptor@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/bunyan-adaptor/-/bunyan-adaptor-5.0.0.tgz#9bf90a9ed2ea6183528ea11903f53ab16769dbc3"
+  integrity sha512-xNFCuxQpWeMd/7cnmcYjUr1dRZdeSSuYdh+Yd0nheGeO797SSlUp4RegucmgiazthSJ9fea/qeLtm0r2yIiMmw==
+
 busboy@^0.2.11:
   version "0.2.14"
   resolved "https://registry.yarnpkg.com/busboy/-/busboy-0.2.14.tgz#6c2a622efcf47c57bbbe1e2a9c37ad36c7925453"
