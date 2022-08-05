@@ -293,10 +293,10 @@
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
 
-"@voxpelli/eslint-config@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@voxpelli/eslint-config/-/eslint-config-4.0.0.tgz#f9577a162cf41e12edfd8ff5cc60f306c09e925d"
-  integrity sha512-9kqADHLgp4p8LGEGuM/mvRH0kjG8lkeB0lRDmNWdUsYks57wHoboLI6hWHUHuDPlGekxx6uMz1mO69AT+UlQuA==
+"@voxpelli/eslint-config@^15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@voxpelli/eslint-config/-/eslint-config-15.0.0.tgz#9d91a3297695f0151a3c1c0aa74f0d19f0ba730f"
+  integrity sha512-2Qu7TS8azgG0h/K/P2Qe9H8fIcwslQVPIGZIGFohzJ9K17JA1BbCrNV5WO/d6cO1OwAGGfJMlWwpPl8uCvtp5g==
 
 "@voxpelli/semver-set@^2.0.0":
   version "2.0.1"
