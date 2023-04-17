@@ -29,7 +29,7 @@ jobs:
       - run: yarn install
       - run: yarn run test-ci
       - name: Coveralls Parallel
-        uses: coverallsapp/github-action@v1.1.2
+        uses: coverallsapp/github-action@v2.1.0
         with:
           github-token: ${{ secrets.github_token }}
           flag-name: run-${{ matrix.os }}-${{ matrix.node_version }}
@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Coveralls Finished
-        uses: coverallsapp/github-action@v1.1.2
+        uses: coverallsapp/github-action@v2.1.0
         with:
           github-token: ${{ secrets.github_token }}
           parallel-finished: true
