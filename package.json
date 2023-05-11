@@ -37,7 +37,6 @@
     "@voxpelli/eslint-config": "^4.0.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "coveralls": "^3.0.9",
     "dependency-check": "^4.1.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
