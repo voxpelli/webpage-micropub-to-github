@@ -1,9 +1,8 @@
 # Micropub to GitHub
 
-[![dependencies Status](https://david-dm.org/voxpelli/webpage-micropub-to-github/status.svg)](https://david-dm.org/voxpelli/webpage-micropub-to-github)
-[![Known Vulnerabilities](https://snyk.io/test/github/voxpelli/webpage-micropub-to-github/badge.svg?targetFile=package.json)](https://snyk.io/test/github/voxpelli/webpage-micropub-to-github?targetFile=package.json)
-[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat)](https://github.com/Flet/semistandard)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvoxpelli%2Fwebpage-micropub-to-github.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvoxpelli%2Fwebpage-micropub-to-github?ref=badge_shield)
+[![IndieWeb](https://img.shields.io/badge/indie-web-FFB100?labelColor=FF5C01)](https://indieweb.org/)
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/voxpelli/eslint-config)
+[![Follow @voxpelli@mastodon.social](https://img.shields.io/mastodon/follow/109247025527949675?domain=https%3A%2F%2Fmastodon.social&style=social)](https://mastodon.social/@voxpelli)
 
 An endpoint that accepts [Micropub](http://micropub.net/) requests, formats them into [Jekyll](http://jekyllrb.com/) posts before pushing them to a configured GitHub repository. This enables updating a Jekyll blog through a [Micropub client](https://indieweb.org/Micropub/Clients).
 
@@ -126,8 +125,3 @@ _Please [open an issue](https://github.com/voxpelli/webpage-micropub-to-github/i
 * [miklb/jekyll-indieweb](https://github.com/miklb/jekyll-indieweb) – a Jekyll theme built with the IndieWeb in mind
 * [voxpelli/voxpelli.github.com](https://github.com/voxpelli/voxpelli.github.com) – first Jekyll blog to use this Micropub endpoint
 * [webmention.herokuapp.com](https://webmention.herokuapp.com/) – another IndieWeb project suited for Jekyll, this one for [Webmention](https://indieweb.org/webmention)
-
-
-## License
-
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvoxpelli%2Fwebpage-micropub-to-github.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvoxpelli%2Fwebpage-micropub-to-github?ref=badge_large)
