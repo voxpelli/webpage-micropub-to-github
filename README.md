@@ -23,8 +23,6 @@ Unsupported:
 
 Requires at least Node.js 14.0.0.
 
-This project contains a [https://yarnpkg.com/](Yarn) lock file which is a faster and more secure alternative to the npm client.
-
 ## Installation
 
 Install as a normal Node.js application. Add the required [configuration](#configuration) values via environment variables or similar mechanism. Or deploy to Heroku:

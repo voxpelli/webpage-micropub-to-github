@@ -5,5 +5,5 @@
 /.env
 /.nyc_output
 
-# When using yarn, skip the package-lock.json
-/package-lock.json
+# When using npm, skip the yarn.lock
+/yarn.lock

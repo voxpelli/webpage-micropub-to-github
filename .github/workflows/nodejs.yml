@@ -1,45 +1,21 @@
-env: {}
-
-# FILE GENERATED WITH: npx ghat voxpelli/ghatemplates/nodejs-coveralls
-# SOURCE: https://github.com/voxpelli/ghatemplates
-# OPTIONS: {"set":["jobs.test.strategy.matrix.node_version=[14,15]","jobs.test.strategy.matrix.os=[ubuntu-latest]"]}
-
 name: Node CI
+
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
 jobs:
   test:
-    name: Node ${{ matrix.node_version }} on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        node_version:
-          - 14
-          - 15
-        os:
-          - ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node_version }}
-      - run: yarn install
-      - run: yarn run test-ci
-      - name: Coveralls Parallel
-        uses: coverallsapp/github-action@v1.1.2
-        with:
-          github-token: ${{ secrets.github_token }}
-          flag-name: run-${{ matrix.os }}-${{ matrix.node_version }}
-          parallel: true
-  coverage:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@v1.1.2
-        with:
-          github-token: ${{ secrets.github_token }}
-          parallel-finished: true
+    uses: voxpelli/ghatemplates/.github/workflows/test.yml@main
+    with:
+      node-versions: '14,16,18,20'
+      os: 'ubuntu-latest'
