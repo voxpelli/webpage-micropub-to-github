@@ -60,7 +60,7 @@
     "express": "^4.17.1",
     "format-microformat": "^0.11.1",
     "fulfills": "^2.1.0",
-    "github-publish": "^3.0.0",
+    "github-publish": "^4.0.0",
     "js-yaml": "^3.12.1",
     "micropub-express": "^0.8.1"
   }
