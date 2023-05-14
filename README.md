@@ -25,7 +25,22 @@ Requires at least Node.js 14.0.0.
 
 Install as a normal Node.js application. Add the required [configuration](#configuration) values via environment variables or similar mechanism. Or deploy to Heroku:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/voxpelli/webpage-micropub-to-github)
+[![Deploy heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/voxpelli/webpage-micropub-to-github)
+
+### Deploy to now
+
+1. Install [now cli](https://zeit.co/download).
+2. Edit `now.json` to have right values relevant for your project. 
+   Especially make sure to change the `alias` to something unique.
+3. Run `now secret add micropub-github-token <yourtoken>` to setup secret.
+4. Run `now` to do deployment to now.
+5. Run `now alias`
+
+This will setup a url endpoint i.e. `https://mysite-micropub.now.sh/micropub/main`
+you can then use in your site.
+
+Note: this uses version1 of now that is based on full Docker. You'll
+get warnings about this but it is okey - things still works.
 
 ## Endpoint discovery
 
